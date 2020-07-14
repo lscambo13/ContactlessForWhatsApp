@@ -11,5 +11,5 @@ Authors:
 [msc24x](https://github.com/msc24x), and all those nice people on StackOverflow :)
 
 
-                                                      ## Please leave a ❤ on your way out. ##
+#### Please leave a ❤ on your way out. ##
 </code>
