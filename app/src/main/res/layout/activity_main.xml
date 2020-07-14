@@ -8,7 +8,6 @@
     android:layout_height="match_parent"
     android:background="@color/colorPrimary"
     android:orientation="vertical"
-    android:fitsSystemWindows="true"
     tools:context=".MainActivity">
 
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -135,8 +134,8 @@
             android:id="@+id/about"
             android:layout_width="63dp"
             android:layout_height="27dp"
-            android:layout_marginTop="32dp"
-            android:layout_marginBottom="64dp"
+            android:layout_marginTop="20dp"
+            android:layout_marginBottom="72dp"
             android:background="@drawable/button_about"
             android:fontFamily="@font/my_font"
             android:includeFontPadding="false"
@@ -145,27 +144,33 @@
             android:text="@string/about"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.501"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/chat" />
+            app:layout_constraintTop_toBottomOf="@+id/chat"
+            app:layout_constraintVertical_bias="0.0" />
 
         <ImageView
             android:id="@+id/share"
-            android:layout_width="24dp"
-            android:layout_height="24dp"
-            android:layout_marginEnd="145dp"
-            android:layout_marginBottom="16dp"
+            android:layout_width="36dp"
+            android:layout_height="36dp"
+            android:layout_marginEnd="130dp"
+            android:layout_marginBottom="24dp"
             android:contentDescription="@string/shareDes"
+            android:paddingHorizontal="8dp"
+            android:paddingVertical="8dp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:srcCompat="@drawable/share_to" />
 
         <ImageView
             android:id="@+id/telegram"
-            android:layout_width="24dp"
-            android:layout_height="24dp"
-            android:layout_marginStart="145dp"
-            android:layout_marginBottom="16dp"
+            android:layout_width="36dp"
+            android:layout_height="36dp"
+            android:layout_marginStart="130dp"
+            android:layout_marginBottom="24dp"
             android:contentDescription="@string/telegramDes"
+            android:paddingHorizontal="8dp"
+            android:paddingVertical="8dp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:srcCompat="@drawable/tg" />

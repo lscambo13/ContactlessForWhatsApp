@@ -10,6 +10,5 @@
         <item name="android:navigationBarColor">@color/colorPrimary</item>
         <item name="android:orientation">vertical</item>
         <item name="android:windowBackground">@color/colorPrimary</item>
-        <item name="android:windowDrawsSystemBarBackgrounds">true</item>
     </style>
 </resources>

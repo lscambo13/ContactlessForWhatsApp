@@ -1,11 +1,14 @@
 package com.lscambo13.contactlessForWhatsApp
 
 import android.content.Intent
+import android.graphics.Color
 import android.net.Uri
 import android.os.Bundle
 import android.text.Editable
 import android.text.TextUtils
 import android.text.TextWatcher
+import android.view.View
+import android.view.WindowManager
 import android.view.inputmethod.EditorInfo
 import android.widget.EditText
 import android.widget.ImageView
@@ -22,7 +25,7 @@ class MainActivity : AppCompatActivity() {
         phnNum1.requestFocus()
 
         val shr = findViewById<ImageView>(R.id.share)
-        val telgrm = findViewById<ImageView>(R.id.telegram)
+        val telegram = findViewById<ImageView>(R.id.telegram)
         var currS = 0
 
         // main call function
@@ -110,8 +113,8 @@ class MainActivity : AppCompatActivity() {
 
         about.setOnClickListener { about() }
 
-        telgrm.setOnClickListener {
-            val supportLink = "https://bit.ly/2ZlCNOT"
+        telegram.setOnClickListener {
+            val supportLink = "https://t.me/lscambo13_projects"
             val openURL = Intent(Intent.ACTION_VIEW)
             openURL.data = Uri.parse(supportLink)
             startActivity(openURL)
@@ -120,7 +123,7 @@ class MainActivity : AppCompatActivity() {
         shr.setOnClickListener {
             intent = Intent(Intent.ACTION_SEND)
             intent.type = "text/plain"
-            val message = "Check out this amazing app that lets you chat with someone on WhatsApp without needing to save their phone number\nbit.ly/3gWV4rL"
+            val message = "Check out this amazing app that lets you chat with others on WhatsApp without needing to save their phone number\nbit.ly/3gWV4rL"
             intent.putExtra(Intent.EXTRA_TEXT, message)
             startActivity(Intent.createChooser(intent, "Show Love by Sharing"))
         }
