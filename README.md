@@ -4,6 +4,7 @@
 An android app to let you chat with others on WhatsApp without ever needing to actually save their phone number in your contacts.
 
 Latest version:<br>
+
 &nbsp;&nbsp;&nbsp;&nbsp;1.02 (17/07/2020)
 
 Check "releases" for download
@@ -11,8 +12,11 @@ Check "releases" for download
 ---------------------------------------------------------------
 
 Authors:<br>
+
 &nbsp;&nbsp;&nbsp;&nbsp;[lscambo13](https://github.com/lscambo13),<br>
-&nbsp;&nbsp;&nbsp;&nbsp;[msc24x](https://github.com/msc24x),<br> and all those nice people on StackOverflow :)
+
+&nbsp;&nbsp;&nbsp;&nbsp;[msc24x](https://github.com/msc24x),<br>  
+and all those nice people on StackOverflow :)
 
 ---------------------------------------------------------------
 
