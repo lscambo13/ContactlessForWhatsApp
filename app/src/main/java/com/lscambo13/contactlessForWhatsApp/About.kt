@@ -52,8 +52,8 @@ class About : AppCompatActivity() {
         }
 
         summary.setOnClickListener {
-            if(summary.text != "\n\n\n\n\n\nMade with ❤️ in India")
-                summary.text = "\n\n\n\n\n\nMade with ❤️ in India"
+            if(summary.text != getString(R.string.easter_egg))
+                summary.text = getString(R.string.easter_egg)
             else
                 summary.text = aboutText.toString()
         }
