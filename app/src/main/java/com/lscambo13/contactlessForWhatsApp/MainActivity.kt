@@ -1,14 +1,14 @@
 package com.lscambo13.contactlessForWhatsApp
 
+import android.content.Context
 import android.content.Intent
-import android.graphics.Color
 import android.net.Uri
 import android.os.Bundle
+import android.telephony.PhoneNumberUtils
+import android.telephony.TelephonyManager
 import android.text.Editable
 import android.text.TextUtils
 import android.text.TextWatcher
-import android.view.View
-import android.view.WindowManager
 import android.view.inputmethod.EditorInfo
 import android.widget.EditText
 import android.widget.ImageView
@@ -22,11 +22,10 @@ class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
-        phnNum1.requestFocus()
+        cCode.requestFocus()
 
         val shr = findViewById<ImageView>(R.id.share)
         val telegram = findViewById<ImageView>(R.id.telegram)
-        var currS = 0
 
         // main call function
         fun start() {
@@ -45,7 +44,7 @@ class MainActivity : AppCompatActivity() {
                     phnNum1.requestFocus()
                 }
                 else -> {
-                    phnNum1.text.replace("\\s".toRegex(), "")
+                    phnNum1.text?.replace("\\s".toRegex(), "")
                     val cCode = cCode.text.toString()
                     val urlPhn1 = phnNum1.text.toString()
                     val go = "https://api.whatsapp.com/send?phone=$cCode$urlPhn1"
@@ -61,23 +60,14 @@ class MainActivity : AppCompatActivity() {
             startActivity(startAbt)
         }
 
-        phnNum1.addTextChangedListener(object : TextWatcher {
+        cCode.addTextChangedListener(object : TextWatcher {
             override fun onTextChanged(
                 s: CharSequence,
                 start: Int1,
                 before: Int1,
                 count: Int1
             ) {
-                val prevS = currS
-                currS = phnNum1.length()
 
-                if (phnNum1.length() == 5)
-                    if (phnNum1.text[4] != ' ')
-                        phnNum1.text.replace("\\s".toRegex(), "")
-                if (phnNum1.length() == 5 && currS > prevS) {
-                    phnNum1.text = phnNum1.text.append(' ')
-                    phnNum1.setSelection(phnNum1.length())
-                }
             }
             override fun beforeTextChanged(
                 s: CharSequence, start: Int1, count: Int1,
@@ -85,7 +75,28 @@ class MainActivity : AppCompatActivity() {
             ) {
             }
             override fun afterTextChanged(s: Editable) {
-                if (phnNum1.length() == 11) {
+                if (cCode.length() == 3) {
+                    phnNum1.requestFocus()
+                }
+            }
+        })
+
+        phnNum1.addTextChangedListener(object : TextWatcher {
+            override fun onTextChanged(
+                s: CharSequence,
+                start: Int1,
+                before: Int1,
+                count: Int1
+            ) {
+
+            }
+            override fun beforeTextChanged(
+                s: CharSequence, start: Int1, count: Int1,
+                after: Int1
+            ) {
+            }
+            override fun afterTextChanged(s: Editable) {
+                if (phnNum1.length() == 12) {
                     start()
                 }
             }
@@ -127,6 +138,8 @@ class MainActivity : AppCompatActivity() {
             intent.putExtra(Intent.EXTRA_TEXT, message)
             startActivity(Intent.createChooser(intent, "Show Love by Sharing"))
         }
+
+
 
         // call via button
         chat.setOnClickListener {
