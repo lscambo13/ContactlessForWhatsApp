@@ -20,8 +20,6 @@
             android:layout_width="229dp"
             android:layout_height="177dp"
             android:layout_marginTop="24dp"
-            android:layout_marginBottom="32dp"
-            app:layout_constraintBottom_toTopOf="@+id/cCode"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.5"
             app:layout_constraintStart_toStartOf="parent"
@@ -34,7 +32,7 @@
             style="@style/Widget.AppCompat.Button"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="96dp"
+            android:layout_marginTop="16dp"
             android:background="@drawable/button"
             android:fontFamily="@font/my_font"
             android:gravity="center"
@@ -45,75 +43,7 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.5"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/imageView" />
-
-        <TextView
-            android:id="@+id/textView"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="336dp"
-            android:fontFamily="@font/din"
-            android:singleLine="true"
-            android:text="@string/plus"
-            android:textColor="@android:color/background_light"
-            android:textColorHint="@android:color/darker_gray"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.3"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
-
-        <EditText
-            android:id="@+id/cCode"
-            android:layout_width="42dp"
-            android:layout_height="50dp"
-            android:layout_marginTop="320dp"
-            android:digits="0123456789"
-            android:ems="10"
-            android:fontFamily="@font/my_font"
-            android:gravity="center|end"
-            android:hint="@string/country"
-            android:imeOptions="actionSend"
-            android:importantForAutofill="no"
-            android:inputType="phone"
-            android:maxLength="3"
-            android:maxLines="1"
-            android:singleLine="true"
-            android:text="@string/country"
-            android:textColor="@android:color/background_light"
-            android:textColorHint="@android:color/darker_gray"
-            android:textSize="20sp"
-            android:typeface="monospace"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.327"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
-
-        <EditText
-            android:id="@+id/phnNum1"
-            android:layout_width="118dp"
-            android:layout_height="50dp"
-            android:layout_marginTop="236dp"
-            android:digits="0123456789 "
-            android:ems="10"
-            android:focusedByDefault="true"
-            android:fontFamily="@font/my_font"
-            android:gravity="center|start"
-            android:hint="@string/example1"
-            android:imeOptions="actionSend"
-            android:importantForAutofill="no"
-            android:inputType="phone"
-            android:singleLine="true"
-            android:textColor="@android:color/background_light"
-            android:textColorHint="@android:color/darker_gray"
-            android:textSize="20sp"
-            android:typeface="monospace"
-            android:visibility="visible"
-            app:layout_constraintBottom_toBottomOf="@+id/cCode"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.641"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="1.0" />
+            app:layout_constraintTop_toBottomOf="@+id/linearLayout" />
 
         <TextView
             android:id="@+id/textView2"
@@ -149,31 +79,40 @@
             app:layout_constraintTop_toBottomOf="@+id/chat"
             app:layout_constraintVertical_bias="0.0" />
 
-        <ImageView
-            android:id="@+id/share"
-            android:layout_width="36dp"
-            android:layout_height="36dp"
-            android:layout_marginEnd="130dp"
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="24dp"
             android:layout_marginBottom="24dp"
-            android:contentDescription="@string/shareDes"
-            android:paddingHorizontal="8dp"
-            android:paddingVertical="8dp"
-            app:layout_constraintBottom_toBottomOf="parent"
+            android:orientation="horizontal"
             app:layout_constraintEnd_toEndOf="parent"
-            app:srcCompat="@drawable/share_to" />
-
-        <ImageView
-            android:id="@+id/telegram"
-            android:layout_width="36dp"
-            android:layout_height="36dp"
-            android:layout_marginStart="130dp"
-            android:layout_marginBottom="24dp"
-            android:contentDescription="@string/telegramDes"
-            android:paddingHorizontal="8dp"
-            android:paddingVertical="8dp"
-            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
             app:layout_constraintStart_toStartOf="parent"
-            app:srcCompat="@drawable/tg" />
+            app:layout_constraintTop_toBottomOf="@+id/about">
+
+            <ImageView
+                android:id="@+id/share"
+                android:layout_width="36dp"
+                android:layout_height="36dp"
+                android:layout_marginEnd="36dp"
+                android:contentDescription="Share"
+                android:paddingHorizontal="8dp"
+                android:paddingVertical="8dp"
+                app:srcCompat="@drawable/share_to"
+                tools:ignore="HardcodedText" />
+
+            <ImageView
+                android:id="@+id/telegram"
+                android:layout_width="36dp"
+                android:layout_height="36dp"
+                android:layout_marginStart="36dp"
+                android:contentDescription="Support"
+                android:paddingHorizontal="8dp"
+                android:paddingVertical="8dp"
+                app:srcCompat="@drawable/tg"
+                tools:ignore="HardcodedText" />
+
+        </LinearLayout>
 
         <androidx.constraintlayout.widget.Guideline
             android:id="@+id/guideline2"
@@ -181,6 +120,68 @@
             android:layout_height="wrap_content"
             android:orientation="horizontal"
             app:layout_constraintGuide_begin="569dp" />
+
+        <LinearLayout
+            android:id="@+id/linearLayout"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="32dp"
+            android:orientation="horizontal"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/imageView">
+
+            <TextView
+                android:id="@+id/textView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/din"
+                android:singleLine="true"
+                android:text="@string/plus"
+                android:textColor="@android:color/background_light"
+                android:textColorHint="@android:color/darker_gray" />
+
+            <EditText
+                android:id="@+id/cCode"
+                android:layout_width="42dp"
+                android:layout_height="50dp"
+                android:digits="0123456789"
+                android:ems="3"
+                android:fontFamily="@font/my_font"
+                android:gravity="center|end"
+                android:hint="@string/country"
+                android:imeOptions="actionSend"
+                android:importantForAutofill="no"
+                android:inputType="phone"
+                android:maxLength="3"
+                android:maxLines="1"
+                android:singleLine="true"
+                android:textColor="@android:color/background_light"
+                android:textColorHint="@android:color/darker_gray"
+                android:textSize="20sp"
+                android:typeface="monospace" />
+
+            <com.santalu.maskedittext.MaskEditText
+                android:id="@+id/phnNum1"
+                android:layout_width="118dp"
+                android:layout_height="50dp"
+                android:digits="0123456789 -"
+                android:ems="12"
+                android:fontFamily="@font/my_font"
+                android:gravity="center|start"
+                android:hint="@string/example1"
+                android:imeOptions="actionSend"
+                android:importantForAutofill="no"
+                android:inputType="phone"
+                android:singleLine="true"
+                android:textColor="@android:color/background_light"
+                android:textColorHint="@android:color/darker_gray"
+                android:textSize="20sp"
+                android:typeface="monospace"
+                android:visibility="visible"
+                app:met_mask="### ### ####"/>
+        </LinearLayout>
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 

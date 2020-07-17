@@ -84,38 +84,10 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/summary" />
 
-        <ImageView
-            android:id="@+id/telegram"
-            android:layout_width="36dp"
-            android:layout_height="36dp"
-            android:layout_marginStart="130dp"
-            android:contentDescription="Support"
-            android:paddingHorizontal="8dp"
-            android:paddingVertical="8dp"
-            app:layout_constraintBottom_toTopOf="@+id/DwnNewVer"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/summary"
-            app:srcCompat="@drawable/tg"
-            tools:ignore="HardcodedText" />
-
-        <ImageView
-            android:id="@+id/share"
-            android:layout_width="36dp"
-            android:layout_height="36dp"
-            android:layout_marginEnd="130dp"
-            android:contentDescription="Share"
-            android:paddingHorizontal="8dp"
-            android:paddingVertical="8dp"
-            app:layout_constraintBottom_toTopOf="@+id/DwnNewVer"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/summary"
-            app:srcCompat="@drawable/share_to"
-            tools:ignore="HardcodedText" />
-
         <TextView
             android:id="@+id/summary"
             android:layout_width="0dp"
-            android:layout_height="204dp"
+            android:layout_height="wrap_content"
             android:layout_marginTop="28dp"
             android:fontFamily="@font/din"
             android:gravity="center_horizontal"
@@ -128,6 +100,40 @@
             app:layout_constraintHorizontal_bias="0.494"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/imageView" />
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="24dp"
+            android:orientation="horizontal"
+            app:layout_constraintBottom_toTopOf="@+id/DwnNewVer"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toStartOf="parent">
+
+            <ImageView
+                android:id="@+id/share"
+                android:layout_width="36dp"
+                android:layout_height="36dp"
+                android:layout_marginEnd="36dp"
+                android:contentDescription="Share"
+                android:paddingHorizontal="8dp"
+                android:paddingVertical="8dp"
+                app:srcCompat="@drawable/share_to"
+                tools:ignore="HardcodedText" />
+
+            <ImageView
+                android:id="@+id/telegram"
+                android:layout_width="36dp"
+                android:layout_height="36dp"
+                android:layout_marginStart="36dp"
+                android:contentDescription="Support"
+                android:paddingHorizontal="8dp"
+                android:paddingVertical="8dp"
+                app:srcCompat="@drawable/tg"
+                tools:ignore="HardcodedText" />
+
+        </LinearLayout>
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 
