@@ -1,15 +1,15 @@
 <resources>
     <string name="app_name">Contactless for WhatsApp</string>
-    <string name="example1">98765 12345</string>
-    <string name="example2">12345</string>
+    <string name="example1">Phone Number</string>
     <string name="chat">Chat</string>
-    <string name="country">91</string>
+    <string name="india">91</string>
+    <string name="country">Code</string>
     <string name="back">Back</string>
     <string name="plus">+</string>
     <string name="about">About</string>
     <string name="telegramDes">Feedback and discussion</string>
     <string name="shareDes">Show love by sharing</string>
-    <string name="about_text">\n\nVersion 1.01\nFree software under GNU GPL v3.0\n\nAn app to let you chat with others on WhatsApp without ever needing to actually save their phone number in contacts.\n\nCreated by:\nLSCAMBO13 and MSC24X</string>
+    <string name="about_text">\n\nVersion 1.01\nFree software under GNU GPL v3.0\n\nAn app to let you chat with others on WhatsApp without ever needing to actually save their phone number in contacts.\n\nCreated by:\nLSCAMBO13 and MSC24X\n\n</string>
     <string name="update">Check for updates</string>
 
 </resources>
