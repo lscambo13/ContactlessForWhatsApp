@@ -13,8 +13,6 @@ import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import com.google.android.gms.ads.AdRequest
 import com.google.android.gms.ads.AdView
-//import com.google.android.gms.ads.MobileAds
-//import com.google.android.gms.ads.RequestConfiguration
 import kotlinx.android.synthetic.main.activity_main.*
 import kotlin.Int as Int1
 
@@ -57,28 +55,14 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        //MobileAds.initialize(this) {}
-
         val adView = findViewById<AdView>(R.id.adView)
-
-        /*MobileAds.setRequestConfiguration(
-            RequestConfiguration.Builder()
-                .setTestDeviceIds(listOf("D50F398C3BFED617020627C107525FB1"))
-                .build()
-        )*/
-
-        // Create an ad request.
         val adReq = AdRequest.Builder().build()
 
-        // Start loading the ad in the background.
         adView.loadAd(adReq)
 
         val shr = findViewById<ImageView>(R.id.share)
         val telegram = findViewById<ImageView>(R.id.telegram)
         cCode.requestFocus()
-
-        // main call function
-
 
         cCode.addTextChangedListener(object : TextWatcher {
             override fun onTextChanged(

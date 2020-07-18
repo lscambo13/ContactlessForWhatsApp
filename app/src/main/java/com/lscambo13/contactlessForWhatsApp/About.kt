@@ -10,9 +10,6 @@ import androidx.appcompat.app.AppCompatActivity
 import com.google.android.gms.ads.AdRequest
 import com.google.android.gms.ads.AdView
 
-//import com.google.android.gms.ads.MobileAds
-//import com.google.android.gms.ads.RequestConfiguration
-
 class About : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -20,17 +17,8 @@ class About : AppCompatActivity() {
         setContentView(R.layout.activity_about)
 
         val adView = findViewById<AdView>(R.id.adView)
-
-        /*MobileAds.setRequestConfiguration(
-            RequestConfiguration.Builder()
-                .setTestDeviceIds(listOf("D50F398C3BFED617020627C107525FB1"))
-                .build()
-        )*/
-
-        // Create an ad request.
         val adReq = AdRequest.Builder().build()
 
-        // Start loading the ad in the background.
         adView.loadAd(adReq)
 
         val close: Button = findViewById(R.id.closeAbt)
@@ -49,7 +37,6 @@ class About : AppCompatActivity() {
             val openURL = Intent(Intent.ACTION_VIEW)
             openURL.data = Uri.parse(updateLink)
 
-            // Start loading the ad in the background.
             adView.loadAd(adReq)
             startActivity(openURL)
         }
@@ -71,9 +58,7 @@ class About : AppCompatActivity() {
 
         summary.setOnClickListener {
 
-            // Start loading the ad in the background.
             adView.loadAd(adReq)
-
             if(summary.text != getString(R.string.easter_egg))
                 summary.text = getString(R.string.easter_egg)
             else
