@@ -11,6 +11,9 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         tools:ignore="AllowBackup">
+        <meta-data
+            android:name="com.google.android.gms.ads.APPLICATION_ID"
+            android:value="ca-app-pub-2978500497338722~3218997697"/>
         <activity
             android:name=".About">
         </activity>
@@ -23,5 +26,4 @@
             </intent-filter>
         </activity>
     </application>
-
 </manifest>

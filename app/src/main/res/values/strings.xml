@@ -11,6 +11,8 @@
     <string name="shareDes">Show love by sharing</string>
     <string name="about_text">\n\nVersion 1.03\nFree software under GNU GPL v3.0\n\nAn app to let you chat with others on WhatsApp without ever needing to actually save their phone number in contacts.\n\nCreated by:\nLSCAMBO13 and MSC24X\n\n</string>
     <string name="update">Check for updates</string>
-    <string name="easter_egg">\n\n\n\n\n\nMade with ❤️ in India\n\n\n\n\n\n</string>
+    <string name="test_ads">ca-app-pub-3940256099942544/6300978111</string>
+    <string name="main_ads">ca-app-pub-2978500497338722/8267326157</string>
+    <string name="easter_egg">\n\n\n\n\n\nMade with ❤️ in India\n\n\n\n\n</string>
 
 </resources>

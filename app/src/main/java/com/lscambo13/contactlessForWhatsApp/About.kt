@@ -1,22 +1,37 @@
 package com.lscambo13.contactlessForWhatsApp
 
-import android.annotation.SuppressLint
 import android.content.Intent
 import android.net.Uri
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Button
 import android.widget.ImageView
 import android.widget.TextView
-import androidx.appcompat.app.AppCompatDelegate
+import androidx.appcompat.app.AppCompatActivity
+import com.google.android.gms.ads.AdRequest
+import com.google.android.gms.ads.AdView
+
+//import com.google.android.gms.ads.MobileAds
+//import com.google.android.gms.ads.RequestConfiguration
 
 class About : AppCompatActivity() {
 
-    @SuppressLint("ResourceType")
     override fun onCreate(savedInstanceState: Bundle?) {
-        AppCompatDelegate.MODE_NIGHT_YES
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_about)
+
+        val adView = findViewById<AdView>(R.id.adView)
+
+        /*MobileAds.setRequestConfiguration(
+            RequestConfiguration.Builder()
+                .setTestDeviceIds(listOf("D50F398C3BFED617020627C107525FB1"))
+                .build()
+        )*/
+
+        // Create an ad request.
+        val adReq = AdRequest.Builder().build()
+
+        // Start loading the ad in the background.
+        adView.loadAd(adReq)
 
         val close: Button = findViewById(R.id.closeAbt)
         val newVer: Button = findViewById(R.id.DwnNewVer)
@@ -33,6 +48,9 @@ class About : AppCompatActivity() {
             val updateLink = "https://bit.ly/3gWV4rL"
             val openURL = Intent(Intent.ACTION_VIEW)
             openURL.data = Uri.parse(updateLink)
+
+            // Start loading the ad in the background.
+            adView.loadAd(adReq)
             startActivity(openURL)
         }
 
@@ -52,10 +70,15 @@ class About : AppCompatActivity() {
         }
 
         summary.setOnClickListener {
+
+            // Start loading the ad in the background.
+            adView.loadAd(adReq)
+
             if(summary.text != getString(R.string.easter_egg))
                 summary.text = getString(R.string.easter_egg)
             else
                 summary.text = aboutText.toString()
+
         }
     }
 }

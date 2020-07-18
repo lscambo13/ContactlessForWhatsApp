@@ -3,6 +3,7 @@
 <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    xmlns:ads="http://schemas.android.com/apk/res-auto"
     android:id="@+id/constraintLayout"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
@@ -12,14 +13,13 @@
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:fitsSystemWindows="true">
+        android:layout_height="wrap_content">
 
         <ImageView
             android:id="@+id/imageView"
             android:layout_width="229dp"
             android:layout_height="177dp"
-            android:layout_marginTop="24dp"
+            android:layout_marginTop="16dp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.5"
             app:layout_constraintStart_toStartOf="parent"
@@ -34,7 +34,7 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="16dp"
             android:background="@drawable/button"
-            android:fontFamily="@font/my_font"
+            android:fontFamily="@font/license"
             android:gravity="center"
             android:paddingStart="8dp"
             android:paddingEnd="8dp"
@@ -50,7 +50,7 @@
             android:layout_width="359dp"
             android:layout_height="55dp"
             android:layout_marginTop="32dp"
-            android:fontFamily="@font/my_font"
+            android:fontFamily="@font/license"
             android:gravity="center"
             android:text="@string/app_name"
             android:textColor="@color/colorAccent"
@@ -67,7 +67,7 @@
             android:layout_marginTop="20dp"
             android:layout_marginBottom="72dp"
             android:background="@drawable/button_about"
-            android:fontFamily="@font/my_font"
+            android:fontFamily="@font/license"
             android:includeFontPadding="false"
             android:paddingStart="8dp"
             android:paddingEnd="8dp"
@@ -85,6 +85,7 @@
             android:layout_marginTop="24dp"
             android:layout_marginBottom="24dp"
             android:orientation="horizontal"
+            app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.5"
             app:layout_constraintStart_toStartOf="parent"
@@ -119,18 +120,18 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:orientation="horizontal"
-            app:layout_constraintGuide_begin="569dp" />
+            app:layout_constraintGuide_begin="623dp" />
 
         <LinearLayout
             android:id="@+id/linearLayout"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="32dp"
+            android:layout_marginTop="24dp"
             android:orientation="horizontal"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.5"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/imageView">
+            app:layout_constraintTop_toBottomOf="@+id/adView">
 
             <TextView
                 android:id="@+id/textView"
@@ -148,7 +149,7 @@
                 android:layout_height="50dp"
                 android:digits="0123456789"
                 android:ems="3"
-                android:fontFamily="@font/my_font"
+                android:fontFamily="@font/license"
                 android:gravity="center|end"
                 android:hint="@string/country"
                 android:imeOptions="actionSend"
@@ -168,7 +169,7 @@
                 android:layout_height="50dp"
                 android:digits="0123456789 -"
                 android:ems="12"
-                android:fontFamily="@font/my_font"
+                android:fontFamily="@font/license"
                 android:gravity="center|start"
                 android:hint="@string/example1"
                 android:imeOptions="actionSend"
@@ -180,8 +181,21 @@
                 android:textSize="20sp"
                 android:typeface="monospace"
                 android:visibility="visible"
-                app:met_mask="### ### ####"/>
+                app:met_mask="### ### ####" />
+
         </LinearLayout>
+
+        <com.google.android.gms.ads.AdView
+            android:id="@+id/adView"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="24dp"
+            ads:adSize="BANNER"
+            ads:adUnitId="@string/main_ads"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/imageView" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 

@@ -1,11 +1,8 @@
 package com.lscambo13.contactlessForWhatsApp
 
-import android.content.Context
 import android.content.Intent
 import android.net.Uri
 import android.os.Bundle
-import android.telephony.PhoneNumberUtils
-import android.telephony.TelephonyManager
 import android.text.Editable
 import android.text.TextUtils
 import android.text.TextWatcher
@@ -14,51 +11,74 @@ import android.widget.EditText
 import android.widget.ImageView
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
+import com.google.android.gms.ads.AdRequest
+import com.google.android.gms.ads.AdView
+//import com.google.android.gms.ads.MobileAds
+//import com.google.android.gms.ads.RequestConfiguration
 import kotlinx.android.synthetic.main.activity_main.*
 import kotlin.Int as Int1
 
 
 class MainActivity : AppCompatActivity() {
+
+    fun start() {
+        when {
+            TextUtils.isEmpty(cCode.text) -> {
+                Toast.makeText(applicationContext, "Country Code missing!", Toast.LENGTH_LONG)
+                    .show()
+                cCode.requestFocus()
+            }
+            TextUtils.isEmpty(phnNum1.text) -> {
+                Toast.makeText(
+                    applicationContext,
+                    "Enter a valid Phone number.",
+                    Toast.LENGTH_SHORT
+                ).show()
+                phnNum1.requestFocus()
+            }
+            else -> {
+                phnNum1.text?.replace("\\s".toRegex(), "")
+                val cCode = cCode.text.toString()
+                val urlPhn1 = phnNum1.text.toString()
+                val go = "https://api.whatsapp.com/send?phone=$cCode$urlPhn1"
+                val openURL = Intent(Intent.ACTION_VIEW)
+                openURL.data = Uri.parse(go)
+                startActivity(openURL)
+            }
+        }
+    }
+
+    fun about() {
+        val startAbt = Intent(this, About::class.java)
+        startActivity(startAbt)
+    }
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
-        cCode.requestFocus()
+
+        //MobileAds.initialize(this) {}
+
+        val adView = findViewById<AdView>(R.id.adView)
+
+        /*MobileAds.setRequestConfiguration(
+            RequestConfiguration.Builder()
+                .setTestDeviceIds(listOf("D50F398C3BFED617020627C107525FB1"))
+                .build()
+        )*/
+
+        // Create an ad request.
+        val adReq = AdRequest.Builder().build()
+
+        // Start loading the ad in the background.
+        adView.loadAd(adReq)
 
         val shr = findViewById<ImageView>(R.id.share)
         val telegram = findViewById<ImageView>(R.id.telegram)
+        cCode.requestFocus()
 
         // main call function
-        fun start() {
-            when {
-                TextUtils.isEmpty(cCode.text) -> {
-                    Toast.makeText(applicationContext, "Country Code missing!", Toast.LENGTH_LONG)
-                        .show()
-                    cCode.requestFocus()
-                }
-                TextUtils.isEmpty(phnNum1.text) -> {
-                    Toast.makeText(
-                        applicationContext,
-                        "Enter a valid Phone number.",
-                        Toast.LENGTH_SHORT
-                    ).show()
-                    phnNum1.requestFocus()
-                }
-                else -> {
-                    phnNum1.text?.replace("\\s".toRegex(), "")
-                    val cCode = cCode.text.toString()
-                    val urlPhn1 = phnNum1.text.toString()
-                    val go = "https://api.whatsapp.com/send?phone=$cCode$urlPhn1"
-                    val openURL = Intent(Intent.ACTION_VIEW)
-                    openURL.data = Uri.parse(go)
-                    startActivity(openURL)
-                }
-            }
-        }
 
-        fun about() {
-            val startAbt = Intent(this, About::class.java)
-            startActivity(startAbt)
-        }
 
         cCode.addTextChangedListener(object : TextWatcher {
             override fun onTextChanged(
@@ -88,7 +108,6 @@ class MainActivity : AppCompatActivity() {
                 before: Int1,
                 count: Int1
             ) {
-
             }
             override fun beforeTextChanged(
                 s: CharSequence, start: Int1, count: Int1,
@@ -139,10 +158,10 @@ class MainActivity : AppCompatActivity() {
             startActivity(Intent.createChooser(intent, "Show Love by Sharing"))
         }
 
-
-
         // call via button
         chat.setOnClickListener {
+            // Start loading the ad in the background.
+            adView.loadAd(adReq)
             start()
         }
     }
