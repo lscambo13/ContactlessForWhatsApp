@@ -24,7 +24,7 @@ Share your feedback at [t.me/lscambo13_projects](https://t.me/lscambo13_projects
 
 #### Please leave a ❤ on your way out. ##
 </code>
----------------------------------------------------------------
+---------------------------------------------------------------<br>
 
 Changes in v1.03<br>
 
@@ -33,7 +33,7 @@ Changes in v1.03<br>
 &nbsp;&nbsp;&nbsp;&nbsp;-Force international phone number format by default<br>
 &nbsp;&nbsp;&nbsp;&nbsp;-Improved layout and text issues on small displays<br>
 &nbsp;&nbsp;&nbsp;&nbsp;-Improved stability<br>
-&nbsp;&nbsp;&nbsp;&nbsp;-Introduce ads (Please support the app)<br>
+&nbsp;&nbsp;&nbsp;&nbsp;-Introduced ads, please support the app<br>
 &nbsp;&nbsp;&nbsp;&nbsp;-Minor UX and UI changes<br>
 
 
