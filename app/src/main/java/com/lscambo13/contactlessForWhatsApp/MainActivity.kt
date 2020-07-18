@@ -11,6 +11,7 @@ import android.widget.EditText
 import android.widget.ImageView
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
+import com.google.android.gms.ads.AdListener
 import com.google.android.gms.ads.AdRequest
 import com.google.android.gms.ads.AdView
 import kotlinx.android.synthetic.main.activity_main.*
@@ -57,8 +58,35 @@ class MainActivity : AppCompatActivity() {
 
         val adView = findViewById<AdView>(R.id.adView)
         val adReq = AdRequest.Builder().build()
-
         adView.loadAd(adReq)
+
+        adView.adListener = object: AdListener() {
+            override fun onAdLoaded() {
+                // Code to be executed when an ad finishes loading.
+            }
+
+            override fun onAdFailedToLoad(errorCode : Int1) {
+                adView.loadAd(adReq)
+            }
+
+            override fun onAdOpened() {
+                // Code to be executed when an ad opens an overlay that
+                // covers the screen.
+            }
+
+            override fun onAdClicked() {
+                // Code to be executed when the user clicks on an ad.
+            }
+
+            override fun onAdLeftApplication() {
+                // Code to be executed when the user has left the app.
+            }
+
+            override fun onAdClosed() {
+                // Code to be executed when the user is about to return
+                // to the app after tapping on an ad.
+            }
+        }
 
         val shr = findViewById<ImageView>(R.id.share)
         val telegram = findViewById<ImageView>(R.id.telegram)
@@ -99,9 +127,6 @@ class MainActivity : AppCompatActivity() {
             ) {
             }
             override fun afterTextChanged(s: Editable) {
-                if (phnNum1.length() == 12) {
-                    start()
-                }
             }
         })
 

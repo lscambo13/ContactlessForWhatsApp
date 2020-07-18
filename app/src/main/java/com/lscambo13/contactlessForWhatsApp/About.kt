@@ -7,6 +7,7 @@ import android.widget.Button
 import android.widget.ImageView
 import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
+import com.google.android.gms.ads.AdListener
 import com.google.android.gms.ads.AdRequest
 import com.google.android.gms.ads.AdView
 
@@ -21,6 +22,34 @@ class About : AppCompatActivity() {
 
         adView.loadAd(adReq)
 
+        adView.adListener = object: AdListener() {
+            override fun onAdLoaded() {
+                // Code to be executed when an ad finishes loading.
+            }
+
+            override fun onAdFailedToLoad(errorCode : Int) {
+                adView.loadAd(adReq)
+            }
+
+            override fun onAdOpened() {
+                // Code to be executed when an ad opens an overlay that
+                // covers the screen.
+            }
+
+            override fun onAdClicked() {
+                // Code to be executed when the user clicks on an ad.
+            }
+
+            override fun onAdLeftApplication() {
+                // Code to be executed when the user has left the app.
+            }
+
+            override fun onAdClosed() {
+                // Code to be executed when the user is about to return
+                // to the app after tapping on an ad.
+            }
+        }
+
         val close: Button = findViewById(R.id.closeAbt)
         val newVer: Button = findViewById(R.id.DwnNewVer)
         val shr: ImageView = findViewById(R.id.share)
@@ -29,7 +58,7 @@ class About : AppCompatActivity() {
         val aboutText = getText(R.string.about_text)
 
         close.setOnClickListener {
-            finish()
+            onBackPressed()
         }
 
         newVer.setOnClickListener {
