@@ -7,7 +7,7 @@ Latest version:<br>
 
 &nbsp;&nbsp;&nbsp;&nbsp;1.02 (17/07/2020)
 
-Check "releases" for download
+[Check "releases" for download](https://github.com/lscambo13/ContactlessForWhatsApp/releases)
 
 ---------------------------------------------------------------
 
@@ -26,8 +26,14 @@ Share your feedback at [t.me/lscambo13_projects](https://t.me/lscambo13_projects
 </code>
 ---------------------------------------------------------------
 
-Changes in v1.02<br>
-&nbsp;&nbsp;&nbsp;&nbsp;-
+Changes in v1.03<br>
+&nbsp;&nbsp;&nbsp;&nbsp;-App now supports Android 5 and up
+&nbsp;&nbsp;&nbsp;&nbsp;-Add support for landscape mode
+&nbsp;&nbsp;&nbsp;&nbsp;-Force international phone number format by default
+&nbsp;&nbsp;&nbsp;&nbsp;-Improved layout and text issues on small displays  
+&nbsp;&nbsp;&nbsp;&nbsp;-Improved stability  
+&nbsp;&nbsp;&nbsp;&nbsp;-Introduce ads (Please support the app)
+&nbsp;&nbsp;&nbsp;&nbsp;-Minor UX and UI changes
 
 
 Changes in v1.01<br>
