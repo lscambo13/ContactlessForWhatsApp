@@ -10,12 +10,15 @@ android {
         applicationId 'com.lscambo13.contactlessForWhatsApp'
         minSdkVersion 21
         targetSdkVersion 30
-        versionCode 3
-        versionName '1.02'
+        versionCode 4
+        versionName '1.03'
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
     }
 
     buildTypes {
+        debug {
+            jniDebuggable false
+        }
         release {
             minifyEnabled true
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
@@ -37,5 +40,5 @@ dependencies {
     implementation 'androidx.recyclerview:recyclerview:1.0.0'
     implementation 'com.google.android.material:material:1.0.0'
     implementation "com.github.santalu:mask-edittext:1.1.1"
-    //implementation 'com.google.android.gms:play-services-ads:19.2.0'
+    implementation 'com.google.android.gms:play-services-ads:19.2.0'
 }
