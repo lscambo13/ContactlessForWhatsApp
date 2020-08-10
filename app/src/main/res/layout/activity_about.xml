@@ -20,14 +20,15 @@
 
         <TextView
             android:id="@+id/textView2"
-            android:layout_width="359dp"
+            android:layout_width="300dp"
             android:layout_height="55dp"
             android:layout_marginTop="32dp"
             android:fontFamily="@font/license"
             android:gravity="center"
             android:text="@string/app_name"
-            android:textColor="@color/colorAccent"
+            android:textColor="@color/colorText"
             android:textSize="24sp"
+            android:background="@drawable/heading"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.5"
             app:layout_constraintStart_toStartOf="parent"
@@ -37,12 +38,12 @@
             android:id="@+id/imageView"
             android:layout_width="229dp"
             android:layout_height="177dp"
-            android:layout_marginTop="16dp"
+            android:layout_marginTop="24dp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.5"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/textView2"
-            app:srcCompat="@drawable/bg"
+            app:srcCompat="@drawable/bg_auto"
             tools:ignore="ContentDescription" />
 
         <Button
@@ -56,6 +57,7 @@
             android:gravity="center"
             android:text="@string/back"
             android:textSize="14sp"
+            android:textColor="@color/colorText"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.501"
@@ -64,6 +66,7 @@
 
         <Button
             android:id="@+id/DwnNewVer"
+            style="@style/Widget.AppCompat.Button"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="64dp"
@@ -73,8 +76,7 @@
             android:paddingStart="12dp"
             android:paddingEnd="12dp"
             android:text="@string/update"
-            android:textColorHighlight="@color/colorAccent"
-            android:textColorLink="@color/colorAccent"
+            android:textColor="@color/colorText"
             android:textSize="18sp"
             app:layout_constraintBottom_toTopOf="@+id/closeAbt"
             app:layout_constraintEnd_toEndOf="parent"
@@ -90,7 +92,7 @@
             android:gravity="center_horizontal"
             android:paddingHorizontal="24dp"
             android:text="@string/about_text"
-            android:textColor="@android:color/background_light"
+            android:textColor="@color/colorTextSummary"
             android:textSize="18sp"
             app:layout_constraintBottom_toTopOf="@+id/DwnNewVer"
             app:layout_constraintEnd_toEndOf="parent"
@@ -116,7 +118,7 @@
                 android:contentDescription="Share"
                 android:paddingHorizontal="8dp"
                 android:paddingVertical="8dp"
-                app:srcCompat="@drawable/share_to"
+                app:srcCompat="@drawable/share_to_grey"
                 tools:ignore="HardcodedText" />
 
             <ImageView
@@ -127,7 +129,7 @@
                 android:contentDescription="Support"
                 android:paddingHorizontal="8dp"
                 android:paddingVertical="8dp"
-                app:srcCompat="@drawable/tg"
+                app:srcCompat="@drawable/tg_filled_grey"
                 tools:ignore="HardcodedText" />
 
         </LinearLayout>
