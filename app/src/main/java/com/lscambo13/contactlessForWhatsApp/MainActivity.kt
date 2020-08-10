@@ -1,6 +1,7 @@
 package com.lscambo13.contactlessForWhatsApp
 
 import android.content.Intent
+import android.content.SharedPreferences
 import android.net.Uri
 import android.os.Bundle
 import android.text.Editable
@@ -11,6 +12,7 @@ import android.widget.EditText
 import android.widget.ImageView
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
+import androidx.appcompat.app.AppCompatDelegate
 import com.google.android.gms.ads.AdListener
 import com.google.android.gms.ads.AdRequest
 import com.google.android.gms.ads.AdView
@@ -55,6 +57,21 @@ class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
+
+        // 0 = off, 1 = on, 2 = auto
+
+        val AppSettingsTheme:SharedPreferences = getSharedPreferences("LocalTheme", 0)
+        val IsNightMode:kotlin.Int = AppSettingsTheme.getInt("LocalTheme", 2)
+
+        if (IsNightMode == 0){
+            AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_YES)
+        }
+        else if (IsNightMode == 1){
+            AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_YES)
+        }
+        else {
+            AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_FOLLOW_SYSTEM)
+        }
 
         val adView = findViewById<AdView>(R.id.adView)
         val adReq = AdRequest.Builder().build()
