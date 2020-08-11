@@ -85,6 +85,22 @@
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/imageView" />
 
+            <TextView
+                android:id="@+id/summary2"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/din"
+                android:gravity="center_horizontal"
+                android:layout_marginStart="24dp"
+                android:layout_marginEnd="24dp"
+                android:text="@string/easter_egg"
+                android:textColor="@color/colorTextSummary"
+                android:textSize="18sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.5"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/imageView" />
+
             <LinearLayout
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -105,7 +121,7 @@
                     android:contentDescription="Share"
                     android:paddingHorizontal="8dp"
                     android:paddingVertical="8dp"
-                    android:tint="@color/tint"
+                    app:tint="@color/tint"
                     android:tintMode="src_atop"
                     app:srcCompat="@drawable/share_to_grey"
                     tools:ignore="HardcodedText" />
@@ -118,7 +134,7 @@
                     android:contentDescription="Support"
                     android:paddingHorizontal="8dp"
                     android:paddingVertical="8dp"
-                    android:tint="@color/tint"
+                    app:tint="@color/tint"
                     android:tintMode="src_atop"
                     app:srcCompat="@drawable/tg_filled_grey"
                     tools:ignore="HardcodedText" />

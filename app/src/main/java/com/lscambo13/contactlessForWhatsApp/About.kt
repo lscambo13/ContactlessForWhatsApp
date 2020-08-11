@@ -3,6 +3,9 @@ package com.lscambo13.contactlessForWhatsApp
 import android.content.Intent
 import android.net.Uri
 import android.os.Bundle
+import android.view.View
+import android.view.animation.Animation
+import android.view.animation.AnimationUtils
 import android.widget.Button
 import android.widget.ImageView
 import android.widget.TextView
@@ -10,6 +13,7 @@ import androidx.appcompat.app.AppCompatActivity
 import com.google.android.gms.ads.AdListener
 import com.google.android.gms.ads.AdRequest
 import com.google.android.gms.ads.AdView
+import kotlinx.android.synthetic.main.activity_about.*
 
 class About : AppCompatActivity() {
 
@@ -85,13 +89,31 @@ class About : AppCompatActivity() {
             startActivity(Intent.createChooser(intent, "Show Love by Sharing"))
         }
 
+        var animRun = 0
+        val animateSummaryIn: Animation = AnimationUtils.loadAnimation(applicationContext, R.anim.summary_anim_in)
+        val animateSummaryOut: Animation = AnimationUtils.loadAnimation(applicationContext, R.anim.summary_anim_out)
+        summary2.visibility = View.INVISIBLE
         summary.setOnClickListener {
+            when (animRun) {
+                0 -> {
+                    summary2.visibility = View.VISIBLE
+                    summary.startAnimation(animateSummaryOut)
+                    summary2.startAnimation(animateSummaryIn)
+                    animRun = 1
+                }
+                1 -> {
+                    summary.startAnimation(animateSummaryIn)
+                    summary2.startAnimation(animateSummaryOut)
+                    animRun = 0
+                }
+            }
 
             adView.loadAd(adReq)
-            if(summary.text != getString(R.string.easter_egg))
-                summary.text = getString(R.string.easter_egg)
-            else
-                summary.text = aboutText.toString()
+
+            //if(summary.text != getString(R.string.easter_egg))
+            //    summary.text = getString(R.string.easter_egg)
+            //else
+            //    summary.text = aboutText.toString()
 
         }
     }
