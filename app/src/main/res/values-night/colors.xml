@@ -8,4 +8,5 @@
     <color name="colorTextSummary">#f4f6f9</color>
     <color name="colorText">#161a23</color>
     <color name="colorTextCode">#f4f6f9</color>
+    <color name="tint">#ececec</color>
 </resources>
