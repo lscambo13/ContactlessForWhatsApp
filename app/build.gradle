@@ -15,6 +15,7 @@ android {
         versionCode 5
         versionName '1.04'
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+        resConfigs "en"
     }
 
     buildTypes {
