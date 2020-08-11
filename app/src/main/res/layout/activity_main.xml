@@ -112,7 +112,7 @@
                     android:maxLength="3"
                     android:maxLines="1"
                     android:singleLine="true"
-                    android:textColor="@android:color/background_light"
+                    android:textColor="@color/colorTextSummary"
                     android:textColorHint="@android:color/darker_gray"
                     android:textSize="20sp"
                     android:typeface="monospace" />
@@ -130,7 +130,7 @@
                     android:importantForAutofill="no"
                     android:inputType="phone"
                     android:singleLine="true"
-                    android:textColor="@android:color/background_light"
+                    android:textColor="@color/colorTextSummary"
                     android:textColorHint="@android:color/darker_gray"
                     android:textSize="20sp"
                     android:typeface="monospace"
@@ -191,7 +191,7 @@
 
     <com.google.android.gms.ads.AdView
         android:id="@+id/adView"
-        android:layout_width="wrap_content"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
         ads:adSize="BANNER"
         ads:adUnitId="@string/main_ads"
