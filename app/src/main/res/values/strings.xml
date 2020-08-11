@@ -1,5 +1,6 @@
 <resources>
     <string name="app_name">Contactless for WhatsApp</string>
+    <string name="app_name_launcher">Contactless</string>
     <string name="example1">Phone Number</string>
     <string name="chat">Chat</string>
     <string name="country">Code</string>

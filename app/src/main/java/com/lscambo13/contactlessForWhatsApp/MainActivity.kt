@@ -18,11 +18,16 @@ import androidx.appcompat.app.AppCompatDelegate
 import com.google.android.gms.ads.AdListener
 import com.google.android.gms.ads.AdRequest
 import com.google.android.gms.ads.AdView
+import com.google.firebase.analytics.FirebaseAnalytics
+import com.google.firebase.analytics.ktx.analytics
+import com.google.firebase.ktx.Firebase
 import kotlinx.android.synthetic.main.activity_main.*
 import kotlin.Int as Int1
 
 
 class MainActivity : AppCompatActivity() {
+
+    private lateinit var firebaseAnalytics: FirebaseAnalytics
 
     fun start() {
         when {
@@ -56,32 +61,40 @@ class MainActivity : AppCompatActivity() {
         startActivity(startAbt)
     }
 
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        val animate_heading:Animation = AnimationUtils.loadAnimation(applicationContext, R.anim.heading_anim)
-        val animate_button_chat:Animation = AnimationUtils.loadAnimation(applicationContext, R.anim.button_chat_anim)
-        val animate_button_about:Animation = AnimationUtils.loadAnimation(applicationContext, R.anim.button_about_anim)
-        val animate_logo:Animation = AnimationUtils.loadAnimation(applicationContext, R.anim.logo_anim)
-        textView2.startAnimation(animate_heading)
-        imageView.startAnimation(animate_logo)
-        chat.startAnimation(animate_button_chat)
-        about.startAnimation(animate_button_about)
+        // Obtain the FirebaseAnalytics instance.
+        firebaseAnalytics = Firebase.analytics
+
+        
+
+        val animateHeading:Animation = AnimationUtils.loadAnimation(applicationContext, R.anim.heading_anim)
+        val animateButtonChat:Animation = AnimationUtils.loadAnimation(applicationContext, R.anim.button_chat_anim)
+        val animateButtonAbout:Animation = AnimationUtils.loadAnimation(applicationContext, R.anim.button_about_anim)
+        val animateLogo:Animation = AnimationUtils.loadAnimation(applicationContext, R.anim.logo_anim)
+        textView2.startAnimation(animateHeading)
+        imageView.startAnimation(animateLogo)
+        chat.startAnimation(animateButtonChat)
+        about.startAnimation(animateButtonAbout)
 
         // 0 = off, 1 = on, 2 = auto
 
-        val AppSettingsTheme:SharedPreferences = getSharedPreferences("LocalTheme", 0)
-        val IsNightMode:kotlin.Int = AppSettingsTheme.getInt("LocalTheme", 2)
+        val appSettingsTheme:SharedPreferences = getSharedPreferences("LocalTheme", 0)
+        val isNightMode:kotlin.Int = appSettingsTheme.getInt("LocalTheme", 2)
 
-        if (IsNightMode == 0){
-            AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_YES)
-        }
-        else if (IsNightMode == 1){
-            AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_YES)
-        }
-        else {
-            AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_FOLLOW_SYSTEM)
+        when (isNightMode) {
+            0 -> {
+                AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_YES)
+            }
+            1 -> {
+                AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_YES)
+            }
+            2 -> {
+                AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_FOLLOW_SYSTEM)
+            }
         }
 
         val adView = findViewById<AdView>(R.id.adView)
@@ -203,6 +216,7 @@ class MainActivity : AppCompatActivity() {
         }
     }
 }
+
 
 
 
