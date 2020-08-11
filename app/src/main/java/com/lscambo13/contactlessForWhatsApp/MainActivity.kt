@@ -7,6 +7,8 @@ import android.os.Bundle
 import android.text.Editable
 import android.text.TextUtils
 import android.text.TextWatcher
+import android.view.animation.Animation
+import android.view.animation.AnimationUtils
 import android.view.inputmethod.EditorInfo
 import android.widget.EditText
 import android.widget.ImageView
@@ -57,6 +59,15 @@ class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
+
+        val animate_heading:Animation = AnimationUtils.loadAnimation(applicationContext, R.anim.heading_anim)
+        val animate_button_chat:Animation = AnimationUtils.loadAnimation(applicationContext, R.anim.button_chat_anim)
+        val animate_button_about:Animation = AnimationUtils.loadAnimation(applicationContext, R.anim.button_about_anim)
+        val animate_logo:Animation = AnimationUtils.loadAnimation(applicationContext, R.anim.logo_anim)
+        textView2.startAnimation(animate_heading)
+        imageView.startAnimation(animate_logo)
+        chat.startAnimation(animate_button_chat)
+        about.startAnimation(animate_button_about)
 
         // 0 = off, 1 = on, 2 = auto
 
