@@ -59,7 +59,6 @@ class About : AppCompatActivity() {
         val shr: ImageView = findViewById(R.id.share)
         val telegram: ImageView = findViewById(R.id.telegram)
         val summary: TextView = findViewById(R.id.summary)
-        val aboutText = getText(R.string.about_text)
 
         close.setOnClickListener {
             onBackPressed()
@@ -107,13 +106,7 @@ class About : AppCompatActivity() {
                     animRun = 0
                 }
             }
-
             adView.loadAd(adReq)
-
-            //if(summary.text != getString(R.string.easter_egg))
-            //    summary.text = getString(R.string.easter_egg)
-            //else
-            //    summary.text = aboutText.toString()
 
         }
     }

@@ -226,7 +226,7 @@
         android:layout_height="24dp"
         android:elevation="12dp"
         android:layout_marginTop="46dp"
-        android:layout_marginEnd="12dp"
+        android:layout_marginEnd="8dp"
         app:tint="@color/colorText"
         app:tintMode="src_atop"
         app:layout_constraintEnd_toEndOf="@+id/textView2"
