@@ -69,13 +69,14 @@ class MainActivity : AppCompatActivity() {
         // Obtain the FirebaseAnalytics instance.
         firebaseAnalytics = Firebase.analytics
 
-        
+
 
         val animateHeading:Animation = AnimationUtils.loadAnimation(applicationContext, R.anim.heading_anim)
         val animateButtonChat:Animation = AnimationUtils.loadAnimation(applicationContext, R.anim.button_chat_anim)
         val animateButtonAbout:Animation = AnimationUtils.loadAnimation(applicationContext, R.anim.button_about_anim)
         val animateLogo:Animation = AnimationUtils.loadAnimation(applicationContext, R.anim.logo_anim)
         textView2.startAnimation(animateHeading)
+        menu.startAnimation(animateHeading)
         imageView.startAnimation(animateLogo)
         chat.startAnimation(animateButtonChat)
         about.startAnimation(animateButtonAbout)

@@ -159,7 +159,7 @@
                     android:contentDescription="Share"
                     android:paddingHorizontal="8dp"
                     android:paddingVertical="8dp"
-                    android:tint="@color/tint"
+                    app:tint="@color/tint"
                     android:tintMode="src_atop"
                     app:srcCompat="@drawable/share_to_grey"
                     tools:ignore="HardcodedText" />
@@ -172,7 +172,7 @@
                     android:contentDescription="Support"
                     android:paddingHorizontal="8dp"
                     android:paddingVertical="8dp"
-                    android:tint="@color/tint"
+                    app:tint="@color/tint"
                     android:tintMode="src_atop"
                     app:srcCompat="@drawable/tg_filled_grey"
                     tools:ignore="HardcodedText" />
@@ -199,12 +199,13 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent" />
+
     <TextView
         android:id="@+id/textView2"
         android:layout_width="match_parent"
         android:layout_height="52dp"
-        android:layout_marginTop="32dp"
         android:layout_marginStart="16dp"
+        android:layout_marginTop="32dp"
         android:layout_marginEnd="16dp"
         android:background="@drawable/heading"
         android:elevation="8dp"
@@ -217,5 +218,18 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent" />
+
+    <ImageView
+        android:id="@+id/menu"
+        android:layout_width="24dp"
+        android:layout_height="24dp"
+        android:elevation="12dp"
+        android:layout_marginTop="46dp"
+        android:layout_marginEnd="12dp"
+        app:tint="@color/colorText"
+        app:tintMode="src_atop"
+        app:layout_constraintEnd_toEndOf="@+id/textView2"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/menu" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
