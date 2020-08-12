@@ -138,6 +138,9 @@ class MainActivity : AppCompatActivity() {
         cCode.requestFocus()
 
         cCode.addTextChangedListener(object : TextWatcher {
+
+            // TODO - - ADD COUNTRY CODE ARRAYS TO AUTO MOVE TO NEXT EDIT_TEXT
+
             override fun onTextChanged(
                 s: CharSequence,
                 start: Int1,
@@ -161,6 +164,10 @@ class MainActivity : AppCompatActivity() {
         })
 
         phnNum1.addTextChangedListener(object : TextWatcher {
+
+            //TODO - - IMPLEMENT PHONENUMBER UTILS
+            //TODO - - INCREASE WORD LIMIT
+
             override fun onTextChanged(
                 s: CharSequence,
                 start: Int1,
@@ -176,6 +183,9 @@ class MainActivity : AppCompatActivity() {
             }
 
             override fun afterTextChanged(s: Editable) {
+
+                //TODO - - ENABLE BACKSPACE TO MOVE BACK TO COUNTRY CODE BOX
+
             }
         })
 
@@ -219,7 +229,7 @@ class MainActivity : AppCompatActivity() {
 
         menu.setOnClickListener {
             //menuInflater.inflate(menu)
-            TODO()
+            //TODO - - ENABLE THREE-DOT MENU
         }
 
         // call via button
