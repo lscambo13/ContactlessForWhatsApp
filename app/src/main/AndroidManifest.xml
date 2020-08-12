@@ -13,13 +13,15 @@
         tools:ignore="AllowBackup">
         <meta-data
             android:name="com.google.android.gms.ads.APPLICATION_ID"
-            android:value="ca-app-pub-2978500497338722~3218997697"/>
-        <activity
-            android:name=".About">
-        </activity>
+            android:value="ca-app-pub-2978500497338722~3218997697" />
+
+        <activity android:name=".About"/>
         <activity
             android:name=".MainActivity"
-            android:windowSoftInputMode="stateVisible">
+            android:windowSoftInputMode="stateVisible"/>
+        <activity
+            android:name=".SplashActivity"
+            android:theme="@style/SplashTheme">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="android.intent.category.LAUNCHER" />
