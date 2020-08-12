@@ -28,11 +28,6 @@ android {
             shrinkResources true
         }
     }
-
-    aaptOptions {
-        cruncherEnabled = false
-    }
-
 }
 
 dependencies {
