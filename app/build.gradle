@@ -29,6 +29,10 @@ android {
         }
     }
 
+    aaptOptions {
+        cruncherEnabled = false
+    }
+
 }
 
 dependencies {
@@ -38,12 +42,9 @@ dependencies {
     implementation 'androidx.core:core-ktx:1.3.1'
     implementation 'androidx.constraintlayout:constraintlayout:1.1.3'
     implementation 'com.google.firebase:firebase-messaging:20.2.4'
-    implementation 'com.google.firebase:firebase-analytics:17.4.4'
     implementation 'com.google.firebase:firebase-perf:19.0.8'
-    testImplementation 'junit:junit:4.12'
     androidTestImplementation 'androidx.test.ext:junit:1.1.1'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.2.0'
-    implementation 'androidx.recyclerview:recyclerview:1.1.0'
     implementation 'com.google.android.material:material:1.2.0'
     implementation "com.github.santalu:mask-edittext:1.1.1"
     implementation 'com.google.android.gms:play-services-ads:19.3.0'

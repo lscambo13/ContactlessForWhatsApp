@@ -15,66 +15,65 @@ import android.widget.ImageView
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.app.AppCompatDelegate
-import com.google.android.gms.ads.AdListener
-import com.google.android.gms.ads.AdRequest
-import com.google.android.gms.ads.AdView
+import com.google.android.gms.ads.*
 import com.google.firebase.analytics.FirebaseAnalytics
 import com.google.firebase.analytics.ktx.analytics
 import com.google.firebase.ktx.Firebase
 import kotlinx.android.synthetic.main.activity_main.*
+import java.util.*
 import kotlin.Int as Int1
-
 
 class MainActivity : AppCompatActivity() {
 
     private lateinit var firebaseAnalytics: FirebaseAnalytics
 
-    fun start() {
-        when {
-            TextUtils.isEmpty(cCode.text) -> {
-                Toast.makeText(applicationContext, "Country Code missing!", Toast.LENGTH_LONG)
-                    .show()
-                cCode.requestFocus()
-            }
-            TextUtils.isEmpty(phnNum1.text) -> {
-                Toast.makeText(
-                    applicationContext,
-                    "Enter a valid Phone number.",
-                    Toast.LENGTH_SHORT
-                ).show()
-                phnNum1.requestFocus()
-            }
-            else -> {
-                phnNum1.text?.replace("\\s".toRegex(), "")
-                val cCode = cCode.text.toString()
-                val urlPhn1 = phnNum1.text.toString()
-                val go = "https://api.whatsapp.com/send?phone=$cCode$urlPhn1"
-                val openURL = Intent(Intent.ACTION_VIEW)
-                openURL.data = Uri.parse(go)
-                startActivity(openURL)
-            }
-        }
-    }
-
-    fun about() {
-        val startAbt = Intent(this, About::class.java)
-        startActivity(startAbt)
-    }
-
-
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
+        fun start() {
+            when {
+                TextUtils.isEmpty(cCode.text) -> {
+                    Toast.makeText(applicationContext, "Country Code missing!", Toast.LENGTH_LONG)
+                        .show()
+                    cCode.requestFocus()
+                }
+                TextUtils.isEmpty(phnNum1.text) -> {
+                    Toast.makeText(
+                        applicationContext,
+                        "Enter a valid Phone number.",
+                        Toast.LENGTH_SHORT
+                    ).show()
+                    phnNum1.requestFocus()
+                }
+                else -> {
+                    phnNum1.text?.replace("\\s".toRegex(), "")
+                    val cCode = cCode.text.toString()
+                    val urlPhn1 = phnNum1.text.toString()
+                    val go = "https://api.whatsapp.com/send?phone=$cCode$urlPhn1"
+                    val openURL = Intent(Intent.ACTION_VIEW)
+                    openURL.data = Uri.parse(go)
+                    startActivity(openURL)
+                }
+            }
+        }
+
+        fun about() {
+            startActivity(Intent(this, About::class.java))
+        }
+
         // Obtain the FirebaseAnalytics instance.
         firebaseAnalytics = Firebase.analytics
 
+        val animateHeading: Animation =
+            AnimationUtils.loadAnimation(applicationContext, R.anim.heading_anim)
+        val animateButtonChat: Animation =
+            AnimationUtils.loadAnimation(applicationContext, R.anim.button_chat_anim)
+        val animateButtonAbout: Animation =
+            AnimationUtils.loadAnimation(applicationContext, R.anim.button_about_anim)
+        val animateLogo: Animation =
+            AnimationUtils.loadAnimation(applicationContext, R.anim.logo_anim)
 
-
-        val animateHeading:Animation = AnimationUtils.loadAnimation(applicationContext, R.anim.heading_anim)
-        val animateButtonChat:Animation = AnimationUtils.loadAnimation(applicationContext, R.anim.button_chat_anim)
-        val animateButtonAbout:Animation = AnimationUtils.loadAnimation(applicationContext, R.anim.button_about_anim)
-        val animateLogo:Animation = AnimationUtils.loadAnimation(applicationContext, R.anim.logo_anim)
         textView2.startAnimation(animateHeading)
         menu.startAnimation(animateHeading)
         imageView.startAnimation(animateLogo)
@@ -83,8 +82,8 @@ class MainActivity : AppCompatActivity() {
 
         // 0 = off, 1 = on, 2 = auto
 
-        val appSettingsTheme:SharedPreferences = getSharedPreferences("LocalTheme", 0)
-        val isNightMode:kotlin.Int = appSettingsTheme.getInt("LocalTheme", 2)
+        val appSettingsTheme: SharedPreferences = getSharedPreferences("LocalTheme", 0)
+        val isNightMode: kotlin.Int = appSettingsTheme.getInt("LocalTheme", 2)
 
         when (isNightMode) {
             0 -> {
@@ -98,16 +97,20 @@ class MainActivity : AppCompatActivity() {
             }
         }
 
+        val testDeviceIds = Arrays.asList("33BE2250B43518CCDA7DE426D04EE231")
+        val configuration = RequestConfiguration.Builder().setTestDeviceIds(testDeviceIds).build()
+        MobileAds.setRequestConfiguration(configuration)
+
         val adView = findViewById<AdView>(R.id.adView)
         val adReq = AdRequest.Builder().build()
         adView.loadAd(adReq)
 
-        adView.adListener = object: AdListener() {
+        adView.adListener = object : AdListener() {
             override fun onAdLoaded() {
                 // Code to be executed when an ad finishes loading.
             }
 
-            override fun onAdFailedToLoad(errorCode : Int1) {
+            override fun onAdFailedToLoad(errorCode: Int1) {
                 adView.loadAd(adReq)
             }
 
@@ -143,11 +146,13 @@ class MainActivity : AppCompatActivity() {
             ) {
 
             }
+
             override fun beforeTextChanged(
                 s: CharSequence, start: Int1, count: Int1,
                 after: Int1
             ) {
             }
+
             override fun afterTextChanged(s: Editable) {
                 if (cCode.length() == 3) {
                     phnNum1.requestFocus()
@@ -163,11 +168,13 @@ class MainActivity : AppCompatActivity() {
                 count: Int1
             ) {
             }
+
             override fun beforeTextChanged(
                 s: CharSequence, start: Int1, count: Int1,
                 after: Int1
             ) {
             }
+
             override fun afterTextChanged(s: Editable) {
             }
         })
@@ -204,9 +211,15 @@ class MainActivity : AppCompatActivity() {
         shr.setOnClickListener {
             intent = Intent(Intent.ACTION_SEND)
             intent.type = "text/plain"
-            val message = "Check out this amazing app that lets you chat with others on WhatsApp without needing to save their phone number\nbit.ly/3gWV4rL"
+            val message =
+                "Check out this amazing app that lets you chat with others on WhatsApp without needing to save their phone number\nbit.ly/3gWV4rL"
             intent.putExtra(Intent.EXTRA_TEXT, message)
             startActivity(Intent.createChooser(intent, "Show Love by Sharing"))
+        }
+
+        menu.setOnClickListener {
+            //menuInflater.inflate(menu)
+            TODO()
         }
 
         // call via button

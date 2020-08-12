@@ -26,12 +26,12 @@ class About : AppCompatActivity() {
 
         adView.loadAd(adReq)
 
-        adView.adListener = object: AdListener() {
+        adView.adListener = object : AdListener() {
             override fun onAdLoaded() {
                 // Code to be executed when an ad finishes loading.
             }
 
-            override fun onAdFailedToLoad(errorCode : Int) {
+            override fun onAdFailedToLoad(errorCode: Int) {
                 adView.loadAd(adReq)
             }
 
@@ -83,14 +83,17 @@ class About : AppCompatActivity() {
         shr.setOnClickListener {
             intent = Intent(Intent.ACTION_SEND)
             intent.type = "text/plain"
-            val message = "Check out this amazing app that lets you chat with someone on WhatsApp without needing to save their phone number\nbit.ly/3gWV4rL"
+            val message =
+                "Check out this amazing app that lets you chat with someone on WhatsApp without needing to save their phone number\nbit.ly/3gWV4rL"
             intent.putExtra(Intent.EXTRA_TEXT, message)
             startActivity(Intent.createChooser(intent, "Show Love by Sharing"))
         }
 
         var animRun = 0
-        val animateSummaryIn: Animation = AnimationUtils.loadAnimation(applicationContext, R.anim.summary_anim_in)
-        val animateSummaryOut: Animation = AnimationUtils.loadAnimation(applicationContext, R.anim.summary_anim_out)
+        val animateSummaryIn: Animation =
+            AnimationUtils.loadAnimation(applicationContext, R.anim.summary_anim_in)
+        val animateSummaryOut: Animation =
+            AnimationUtils.loadAnimation(applicationContext, R.anim.summary_anim_out)
         summary2.visibility = View.INVISIBLE
         summary.setOnClickListener {
             when (animRun) {
