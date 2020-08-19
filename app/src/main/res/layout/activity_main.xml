@@ -50,6 +50,8 @@
                 android:text="@string/chat"
                 android:textColor="@color/colorText"
                 android:textSize="20sp"
+                android:clickable="true"
+                android:focusable="true"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.5"
                 app:layout_constraintStart_toStartOf="parent"
@@ -68,6 +70,8 @@
                 android:paddingEnd="8dp"
                 android:text="@string/about"
                 android:textColor="@color/colorText"
+                android:clickable="true"
+                android:focusable="true"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.501"
@@ -99,10 +103,10 @@
 
                 <EditText
                     android:id="@+id/cCode"
-                    android:layout_width="42dp"
+                    android:layout_width="60dp"
                     android:layout_height="50dp"
                     android:digits="0123456789"
-                    android:ems="3"
+                    android:ems="5"
                     android:fontFamily="@font/license"
                     android:gravity="center|end"
                     android:hint="@string/country"
@@ -119,10 +123,10 @@
 
                 <com.santalu.maskedittext.MaskEditText
                     android:id="@+id/phnNum1"
-                    android:layout_width="118dp"
+                    android:layout_width="136dp"
                     android:layout_height="50dp"
                     android:digits="0123456789 -"
-                    android:ems="12"
+                    android:ems="16"
                     android:fontFamily="@font/license"
                     android:gravity="center|start"
                     android:hint="@string/example1"
@@ -162,6 +166,8 @@
                     android:tintMode="src_atop"
                     app:srcCompat="@drawable/share_to_grey"
                     app:tint="@color/tint"
+                    android:clickable="true"
+                    android:focusable="true"
                     tools:ignore="HardcodedText" />
 
                 <ImageView
@@ -175,7 +181,9 @@
                     android:tintMode="src_atop"
                     app:srcCompat="@drawable/tg_filled_grey"
                     app:tint="@color/tint"
-                    tools:ignore="HardcodedText" />
+                    tools:ignore="HardcodedText"
+                    android:clickable="true"
+                    android:focusable="true" />
 
             </LinearLayout>
 
@@ -221,16 +229,20 @@
 
     <ImageView
         android:id="@+id/menu"
-        android:layout_width="22dp"
-        android:layout_height="20dp"
-        android:layout_marginTop="48dp"
+        android:layout_width="32dp"
+        android:layout_height="32dp"
+        android:layout_marginTop="42dp"
         android:layout_marginEnd="8dp"
         android:elevation="12dp"
+        android:padding="4dp"
+        android:background="?android:attr/selectableItemBackground"
+        android:clickable="true"
         app:layout_constraintEnd_toEndOf="@+id/textView2"
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@drawable/menu"
         app:tint="@color/colorText"
         app:tintMode="src_atop"
-        tools:ignore="ContentDescription" />
+        tools:ignore="ContentDescription"
+        android:focusable="true" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

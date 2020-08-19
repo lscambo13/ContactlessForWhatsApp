@@ -46,6 +46,8 @@
                 android:text="@string/back"
                 android:textColor="@color/colorText"
                 android:textSize="14sp"
+                android:clickable="true"
+                android:focusable="true"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.5"
                 app:layout_constraintStart_toStartOf="parent"
@@ -64,6 +66,8 @@
                 android:text="@string/update"
                 android:textColor="@color/colorText"
                 android:textSize="18sp"
+                android:clickable="true"
+                android:focusable="true"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.5"
                 app:layout_constraintStart_toStartOf="parent"
@@ -96,6 +100,7 @@
                 android:text="@string/easter_egg"
                 android:textColor="@color/colorTextSummary"
                 android:textSize="18sp"
+                ads:layout_constraintBottom_toTopOf="@+id/DwnNewVer"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.5"
                 app:layout_constraintStart_toStartOf="parent"
@@ -124,7 +129,9 @@
                     android:tintMode="src_atop"
                     app:srcCompat="@drawable/share_to_grey"
                     app:tint="@color/tint"
-                    tools:ignore="HardcodedText" />
+                    tools:ignore="HardcodedText"
+                    android:clickable="true"
+                    android:focusable="true" />
 
                 <ImageView
                     android:id="@+id/telegram"
@@ -137,7 +144,9 @@
                     android:tintMode="src_atop"
                     app:srcCompat="@drawable/tg_filled_grey"
                     app:tint="@color/tint"
-                    tools:ignore="HardcodedText" />
+                    tools:ignore="HardcodedText"
+                    android:clickable="true"
+                    android:focusable="true" />
 
             </LinearLayout>
 
@@ -173,4 +182,23 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent" />
+
+    <ImageView
+        android:id="@+id/menu"
+        android:layout_width="32dp"
+        android:layout_height="32dp"
+        android:layout_marginTop="42dp"
+        android:layout_marginEnd="8dp"
+        android:elevation="12dp"
+        android:padding="4dp"
+        android:background="?android:attr/selectableItemBackground"
+        android:clickable="true"
+        app:layout_constraintEnd_toEndOf="@+id/textView2"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/menu"
+        app:tint="@color/colorText"
+        app:tintMode="src_atop"
+        tools:ignore="ContentDescription"
+        android:focusable="true" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>

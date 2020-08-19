@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:id="@+id/themes"
+        android:title="@string/theme" >
+        <menu>
+            <item
+                android:id="@+id/sysDef"
+                android:title="@string/auto_theme"/>
+            <item
+                android:id="@+id/day"
+                android:title="@string/day_theme"/>
+            <item
+                android:id="@+id/night"
+                android:title="@string/night_theme"/>
+        </menu>
+    </item>
+
+</menu>
