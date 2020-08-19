@@ -1,7 +1,6 @@
 package com.lscambo13.contactlessForWhatsApp
 
 import android.content.Intent
-import android.content.SharedPreferences
 import android.net.Uri
 import android.os.Bundle
 import android.text.Editable
@@ -12,6 +11,7 @@ import android.view.animation.AnimationUtils
 import android.view.inputmethod.EditorInfo
 import android.widget.EditText
 import android.widget.ImageView
+import android.widget.PopupMenu
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.app.AppCompatDelegate
@@ -20,47 +20,17 @@ import com.google.firebase.analytics.FirebaseAnalytics
 import com.google.firebase.analytics.ktx.analytics
 import com.google.firebase.ktx.Firebase
 import kotlinx.android.synthetic.main.activity_main.*
-import java.util.*
 import kotlin.Int as Int1
 
 class MainActivity : AppCompatActivity() {
 
     private lateinit var firebaseAnalytics: FirebaseAnalytics
 
+    //TODO - -MAKE LOAD METHOD
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
-
-        fun start() {
-            when {
-                TextUtils.isEmpty(cCode.text) -> {
-                    Toast.makeText(applicationContext, "Country Code missing!", Toast.LENGTH_LONG)
-                        .show()
-                    cCode.requestFocus()
-                }
-                TextUtils.isEmpty(phnNum1.text) -> {
-                    Toast.makeText(
-                        applicationContext,
-                        "Enter a valid Phone number.",
-                        Toast.LENGTH_SHORT
-                    ).show()
-                    phnNum1.requestFocus()
-                }
-                else -> {
-                    phnNum1.text?.replace("\\s".toRegex(), "")
-                    val cCode = cCode.text.toString()
-                    val urlPhn1 = phnNum1.text.toString()
-                    val go = "https://api.whatsapp.com/send?phone=$cCode$urlPhn1"
-                    val openURL = Intent(Intent.ACTION_VIEW)
-                    openURL.data = Uri.parse(go)
-                    startActivity(openURL)
-                }
-            }
-        }
-
-        fun about() {
-            startActivity(Intent(this, About::class.java))
-        }
 
         // Obtain the FirebaseAnalytics instance.
         firebaseAnalytics = Firebase.analytics
@@ -80,24 +50,8 @@ class MainActivity : AppCompatActivity() {
         chat.startAnimation(animateButtonChat)
         about.startAnimation(animateButtonAbout)
 
-        // 0 = off, 1 = on, 2 = auto
 
-        val appSettingsTheme: SharedPreferences = getSharedPreferences("LocalTheme", 0)
-        val isNightMode: kotlin.Int = appSettingsTheme.getInt("LocalTheme", 2)
-
-        when (isNightMode) {
-            0 -> {
-                AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_YES)
-            }
-            1 -> {
-                AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_YES)
-            }
-            2 -> {
-                AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_FOLLOW_SYSTEM)
-            }
-        }
-
-        val testDeviceIds = Arrays.asList("33BE2250B43518CCDA7DE426D04EE231")
+        val testDeviceIds = listOf("5D4AF9D840DDE3EAE66D464C754BF20D")
         val configuration = RequestConfiguration.Builder().setTestDeviceIds(testDeviceIds).build()
         MobileAds.setRequestConfiguration(configuration)
 
@@ -109,24 +63,19 @@ class MainActivity : AppCompatActivity() {
             override fun onAdLoaded() {
                 // Code to be executed when an ad finishes loading.
             }
-
             override fun onAdFailedToLoad(errorCode: Int1) {
                 adView.loadAd(adReq)
             }
-
             override fun onAdOpened() {
                 // Code to be executed when an ad opens an overlay that
                 // covers the screen.
             }
-
             override fun onAdClicked() {
                 // Code to be executed when the user clicks on an ad.
             }
-
             override fun onAdLeftApplication() {
                 // Code to be executed when the user has left the app.
             }
-
             override fun onAdClosed() {
                 // Code to be executed when the user is about to return
                 // to the app after tapping on an ad.
@@ -136,10 +85,9 @@ class MainActivity : AppCompatActivity() {
         val shr = findViewById<ImageView>(R.id.share)
         val telegram = findViewById<ImageView>(R.id.telegram)
         cCode.requestFocus()
+        val countryCodes = resources.getStringArray(R.array.country_code)
 
         cCode.addTextChangedListener(object : TextWatcher {
-
-            // TODO - - ADD COUNTRY CODE ARRAYS TO AUTO MOVE TO NEXT EDIT_TEXT
 
             override fun onTextChanged(
                 s: CharSequence,
@@ -147,19 +95,19 @@ class MainActivity : AppCompatActivity() {
                 before: Int1,
                 count: Int1
             ) {
-
+                if(cCode.text.isNotEmpty())
+                    if(cCode.text.toString() in countryCodes)
+                       phnNum1.requestFocus()
             }
-
             override fun beforeTextChanged(
                 s: CharSequence, start: Int1, count: Int1,
                 after: Int1
             ) {
             }
-
             override fun afterTextChanged(s: Editable) {
-                if (cCode.length() == 3) {
-                    phnNum1.requestFocus()
-                }
+                /*if (cCode.length() == 3) {
+                  *  phnNum1.requestFocus()
+                }*/
             }
         })
 
@@ -175,17 +123,15 @@ class MainActivity : AppCompatActivity() {
                 count: Int1
             ) {
             }
-
             override fun beforeTextChanged(
                 s: CharSequence, start: Int1, count: Int1,
                 after: Int1
             ) {
             }
-
             override fun afterTextChanged(s: Editable) {
-
-                //TODO - - ENABLE BACKSPACE TO MOVE BACK TO COUNTRY CODE BOX
-
+                if(phnNum1.text.toString().isEmpty()) {
+                    cCode.requestFocus()
+                }
             }
         })
 
@@ -228,8 +174,7 @@ class MainActivity : AppCompatActivity() {
         }
 
         menu.setOnClickListener {
-            //menuInflater.inflate(menu)
-            //TODO - - ENABLE THREE-DOT MENU
+            menuClick()
         }
 
         // call via button
@@ -238,6 +183,66 @@ class MainActivity : AppCompatActivity() {
             adView.loadAd(adReq)
             start()
         }
+    }
+
+
+    private fun start() {
+        when {
+            TextUtils.isEmpty(cCode.text) -> {
+                Toast.makeText(applicationContext, "Country Code missing!", Toast.LENGTH_LONG)
+                    .show()
+                cCode.requestFocus()
+            }
+            TextUtils.isEmpty(phnNum1.text) -> {
+                Toast.makeText(
+                    applicationContext,
+                    "Enter a valid Phone number.",
+                    Toast.LENGTH_SHORT
+                ).show()
+                phnNum1.requestFocus()
+            }
+            else -> {
+                phnNum1.text?.replace("\\s".toRegex(), "")
+                val cCode = cCode.text.toString()
+                val urlPhn1 = phnNum1.text.toString()
+                val go = "https://api.whatsapp.com/send?phone=$cCode$urlPhn1"
+                val openURL = Intent(Intent.ACTION_VIEW)
+                openURL.data = Uri.parse(go)
+                startActivity(openURL)
+            }
+        }
+    }
+
+    private fun about() {
+        startActivity(Intent(this, About::class.java))
+    }
+
+    private fun menuClick() {
+
+        val menuPopup = PopupMenu(this, menu)
+        menuPopup.inflate(R.menu.menu)
+        menuPopup.show()
+
+        menuPopup.setOnMenuItemClickListener {
+            when(it!!.itemId){
+                R.id.sysDef -> {
+                    AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_FOLLOW_SYSTEM)
+                    save()
+                }
+                R.id.day -> {
+                    AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO)
+                    save()
+                }
+                R.id.night ->
+                {AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_YES)
+                    save()}
+            }
+            true
+        }
+    }
+
+    private fun save() {
+        //TODO - - MAKE SAVE METHOD
     }
 }
 

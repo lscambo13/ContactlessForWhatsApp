@@ -112,6 +112,10 @@ class About : AppCompatActivity() {
             adView.loadAd(adReq)
 
         }
+
+        menu.setOnClickListener {
+            //TODO - - CREATE CLASS FOR MENUCLICK()
+        }
     }
 }
 
