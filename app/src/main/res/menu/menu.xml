@@ -6,7 +6,8 @@
         <menu>
             <item
                 android:id="@+id/sysDef"
-                android:title="@string/auto_theme"/>
+                android:title="@string/auto_theme"
+                android:checked="true"/>
             <item
                 android:id="@+id/day"
                 android:title="@string/day_theme"/>
@@ -15,5 +16,14 @@
                 android:title="@string/night_theme"/>
         </menu>
     </item>
+    <item
+        android:id="@+id/about"
+        android:title="@string/about"/>
+
+    <item
+        android:id="@+id/exit"
+        android:checked="true"
+        android:title="@string/exit"/>
+
 
 </menu>
