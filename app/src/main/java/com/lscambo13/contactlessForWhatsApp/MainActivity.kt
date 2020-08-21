@@ -1,11 +1,11 @@
 package com.lscambo13.contactlessForWhatsApp
 
+import android.content.Context
 import android.content.Intent
 import android.net.Uri
 import android.os.Bundle
-import android.text.Editable
-import android.text.TextUtils
-import android.text.TextWatcher
+import android.telephony.PhoneNumberFormattingTextWatcher
+import android.telephony.TelephonyManager
 import android.view.animation.Animation
 import android.view.animation.AnimationUtils
 import android.view.inputmethod.EditorInfo
@@ -20,7 +20,7 @@ import com.google.firebase.analytics.FirebaseAnalytics
 import com.google.firebase.analytics.ktx.analytics
 import com.google.firebase.ktx.Firebase
 import kotlinx.android.synthetic.main.activity_main.*
-import kotlin.Int as Int1
+import java.util.*
 
 class MainActivity : AppCompatActivity() {
 
@@ -51,7 +51,7 @@ class MainActivity : AppCompatActivity() {
         about.startAnimation(animateButtonAbout)
 
 
-        val testDeviceIds = listOf("5D4AF9D840DDE3EAE66D464C754BF20D")
+        val testDeviceIds = listOf("5D4AF9D840DDE3EAE66D464C754BF20D", "83CF9B4C6D12079FEB5BA7155E48C9E6")
         val configuration = RequestConfiguration.Builder().setTestDeviceIds(testDeviceIds).build()
         MobileAds.setRequestConfiguration(configuration)
 
@@ -63,7 +63,7 @@ class MainActivity : AppCompatActivity() {
             override fun onAdLoaded() {
                 // Code to be executed when an ad finishes loading.
             }
-            override fun onAdFailedToLoad(errorCode: Int1) {
+            override fun onAdFailedToLoad(errorCode: Int) {
                 adView.loadAd(adReq)
             }
             override fun onAdOpened() {
@@ -84,9 +84,10 @@ class MainActivity : AppCompatActivity() {
 
         val shr = findViewById<ImageView>(R.id.share)
         val telegram = findViewById<ImageView>(R.id.telegram)
-        cCode.requestFocus()
-        val countryCodes = resources.getStringArray(R.array.country_code)
+        phnNum1.requestFocus()
+        val countryCodes:Array<String> = resources.getStringArray(R.array.DialingCountryCode)
 
+        /*
         cCode.addTextChangedListener(object : TextWatcher {
 
             override fun onTextChanged(
@@ -102,20 +103,32 @@ class MainActivity : AppCompatActivity() {
             override fun beforeTextChanged(
                 s: CharSequence, start: Int1, count: Int1,
                 after: Int1
-            ) {
-            }
-            override fun afterTextChanged(s: Editable) {
-                /*if (cCode.length() == 3) {
-                  *  phnNum1.requestFocus()
-                }*/
-            }
+            ) {}
+            override fun afterTextChanged(s: Editable) {}
         })
+         */
 
-        phnNum1.addTextChangedListener(object : TextWatcher {
 
-            //TODO - - IMPLEMENT PHONENUMBER UTILS
-            //TODO - - INCREASE WORD LIMIT
+        val tm =
+            getSystemService(Context.TELEPHONY_SERVICE) as TelephonyManager
+        val countryCodeValue = tm.networkCountryIso.toUpperCase(Locale.ROOT)
+        var countryDialCode:String = ""
+        for (i in countryCodes.indices) {
+            val arrDial: List<String> = countryCodes.get(i).split(",")
+            if (arrDial[1].trim { it <= ' ' } == countryCodeValue.trim()) {
+                countryDialCode = arrDial[0]
+                break
+            }
+        }
 
+        val setCode = "+$countryDialCode"
+        phnNum1.setText(setCode)
+        val phnPos = phnNum1.length()
+        phnNum1.setSelection(phnPos)
+
+        phnNum1.addTextChangedListener(object : PhoneNumberFormattingTextWatcher(){
+
+            /*
             override fun onTextChanged(
                 s: CharSequence,
                 start: Int1,
@@ -133,7 +146,10 @@ class MainActivity : AppCompatActivity() {
                     cCode.requestFocus()
                 }
             }
+
+             */
         })
+
 
         findViewById<EditText>(R.id.phnNum1).setOnEditorActionListener { _, actionId, _ ->
             return@setOnEditorActionListener when (actionId) {
@@ -145,6 +161,7 @@ class MainActivity : AppCompatActivity() {
             }
         }
 
+        /*
         findViewById<EditText>(R.id.cCode).setOnEditorActionListener { _, actionId, _ ->
             return@setOnEditorActionListener when (actionId) {
                 EditorInfo.IME_ACTION_SEND -> {
@@ -154,6 +171,8 @@ class MainActivity : AppCompatActivity() {
                 else -> false
             }
         }
+
+         */
 
         about.setOnClickListener { about() }
 
@@ -188,24 +207,24 @@ class MainActivity : AppCompatActivity() {
 
     private fun start() {
         when {
-            TextUtils.isEmpty(cCode.text) -> {
+            !(phnNum1.text.startsWith("+") || phnNum1.text.startsWith("00")) -> {
                 Toast.makeText(applicationContext, "Country Code missing!", Toast.LENGTH_LONG)
                     .show()
-                cCode.requestFocus()
+                phnNum1.requestFocus()
             }
-            TextUtils.isEmpty(phnNum1.text) -> {
+            /* TextUtils.isEmpty(phnNum1.text) -> {
                 Toast.makeText(
                     applicationContext,
                     "Enter a valid Phone number.",
                     Toast.LENGTH_SHORT
                 ).show()
                 phnNum1.requestFocus()
-            }
+            }*/
             else -> {
-                phnNum1.text?.replace("\\s".toRegex(), "")
-                val cCode = cCode.text.toString()
+                //phnNum1.text?.replace("\\s".toRegex(), "")
+                //val cCode = cCode.text.toString()
                 val urlPhn1 = phnNum1.text.toString()
-                val go = "https://api.whatsapp.com/send?phone=$cCode$urlPhn1"
+                val go = "https://api.whatsapp.com/send?phone=$urlPhn1"
                 val openURL = Intent(Intent.ACTION_VIEW)
                 openURL.data = Uri.parse(go)
                 startActivity(openURL)
