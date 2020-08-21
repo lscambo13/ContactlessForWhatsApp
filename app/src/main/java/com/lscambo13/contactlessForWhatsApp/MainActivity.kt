@@ -112,7 +112,7 @@ class MainActivity : AppCompatActivity() {
         val tm =
             getSystemService(Context.TELEPHONY_SERVICE) as TelephonyManager
         val countryCodeValue = tm.networkCountryIso.toUpperCase(Locale.ROOT)
-        var countryDialCode:String = ""
+        var countryDialCode = ""
         for (i in countryCodes.indices) {
             val arrDial: List<String> = countryCodes.get(i).split(",")
             if (arrDial[1].trim { it <= ' ' } == countryCodeValue.trim()) {
