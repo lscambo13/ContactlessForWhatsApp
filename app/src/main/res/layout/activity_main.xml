@@ -52,6 +52,7 @@
                 android:textSize="20sp"
                 android:clickable="true"
                 android:focusable="true"
+                android:foreground="?android:attr/selectableItemBackground"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.5"
                 app:layout_constraintStart_toStartOf="parent"
@@ -72,6 +73,7 @@
                 android:textColor="@color/colorText"
                 android:clickable="true"
                 android:focusable="true"
+                android:foreground="?android:attr/selectableItemBackground"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.501"
@@ -90,56 +92,24 @@
                 app:layout_constraintHorizontal_bias="0.5"
                 app:layout_constraintStart_toStartOf="parent">
 
-                <TextView
-                    android:id="@+id/textView"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="center"
-                    android:fontFamily="@font/din"
-                    android:singleLine="true"
-                    android:text="@string/plus"
-                    android:textColor="@color/colorTextCode"
-                    android:textColorHint="@android:color/darker_gray" />
 
                 <EditText
-                    android:id="@+id/cCode"
-                    android:layout_width="60dp"
-                    android:layout_height="50dp"
-                    android:digits="0123456789"
-                    android:ems="5"
-                    android:fontFamily="@font/license"
-                    android:gravity="center|end"
-                    android:hint="@string/country"
-                    android:imeOptions="actionSend"
-                    android:importantForAutofill="no"
-                    android:inputType="phone"
-                    android:maxLength="3"
-                    android:maxLines="1"
-                    android:singleLine="true"
-                    android:textColor="@color/colorTextSummary"
-                    android:textColorHint="@android:color/darker_gray"
-                    android:textSize="20sp"
-                    android:typeface="monospace" />
-
-                <com.santalu.maskedittext.MaskEditText
                     android:id="@+id/phnNum1"
-                    android:layout_width="136dp"
+                    android:layout_width="180dp"
                     android:layout_height="50dp"
-                    android:digits="0123456789 -"
-                    android:ems="16"
-                    android:fontFamily="@font/license"
+                    android:fontFamily="@font/din"
                     android:gravity="center|start"
                     android:hint="@string/example1"
                     android:imeOptions="actionSend"
                     android:importantForAutofill="no"
                     android:inputType="phone"
                     android:singleLine="true"
+                    android:padding="12dp"
                     android:textColor="@color/colorTextSummary"
                     android:textColorHint="@android:color/darker_gray"
                     android:textSize="20sp"
                     android:typeface="monospace"
-                    android:visibility="visible"
-                    app:met_mask="### ### ####" />
+                    android:visibility="visible" />
 
             </LinearLayout>
 
@@ -206,7 +176,9 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintStart_toStartOf="parent"
+        android:foregroundTint="@color/colorAccent"
+        android:foregroundTintMode="screen"/>
 
     <TextView
         android:id="@+id/textView2"
