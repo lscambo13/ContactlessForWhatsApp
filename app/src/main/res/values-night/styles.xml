@@ -26,6 +26,10 @@
     </style>
 
     <style name="MyAlertDialogTheme" parent="Theme.AppCompat.DayNight.Dialog.Alert">
+        <item name="android:textAppearance">@font/din</item>
+        <item name="android:textAppearanceSmall">@font/din</item>
+        <item name="android:textAppearanceMedium">@font/din</item>
+        <item name="android:textAppearanceLarge">@font/din</item>
         <item name="android:fontFamily">@font/din</item>
     </style>
 </resources>
