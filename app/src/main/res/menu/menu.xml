@@ -1,28 +1,34 @@
 <?xml version="1.0" encoding="utf-8"?>
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <!-- TODO - - ENABLE RADIO BUTTONS -->
+    <item
+        android:title="@string/version"
+        android:enabled="false"/>
     <item
         android:id="@+id/themes"
-        android:title="@string/theme" >
+        android:title="@string/theme">
         <menu>
-            <item
-                android:id="@+id/sysDef"
-                android:title="@string/auto_theme"
-                android:checked="true"/>
-            <item
-                android:id="@+id/day"
-                android:title="@string/day_theme"/>
-            <item
-                android:id="@+id/night"
-                android:title="@string/night_theme"/>
+            <group
+                android:checkableBehavior="none">
+                <item
+                    android:id="@+id/sysDef"
+                    android:title="@string/auto_theme" />
+                <item
+                    android:id="@+id/day"
+                    android:title="@string/day_theme" />
+                <item
+                    android:id="@+id/night"
+                    android:title="@string/night_theme" />
+            </group>
         </menu>
     </item>
     <item
         android:id="@+id/about"
-        android:title="@string/about"/>
+        android:title="@string/about"
+        />
 
     <item
         android:id="@+id/exit"
-        android:checked="true"
         android:title="@string/exit"/>
 
 

@@ -10,7 +10,6 @@ import android.widget.Button
 import android.widget.ImageView
 import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
-import com.google.android.gms.ads.AdListener
 import com.google.android.gms.ads.AdRequest
 import com.google.android.gms.ads.AdView
 import kotlinx.android.synthetic.main.activity_about.*
@@ -21,38 +20,10 @@ class About : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_about)
 
+        val mainActivity = MainActivity()
         val adView = findViewById<AdView>(R.id.adView)
         val adReq = AdRequest.Builder().build()
-
         adView.loadAd(adReq)
-
-        adView.adListener = object : AdListener() {
-            override fun onAdLoaded() {
-                // Code to be executed when an ad finishes loading.
-            }
-
-            override fun onAdFailedToLoad(errorCode: Int) {
-                adView.loadAd(adReq)
-            }
-
-            override fun onAdOpened() {
-                // Code to be executed when an ad opens an overlay that
-                // covers the screen.
-            }
-
-            override fun onAdClicked() {
-                // Code to be executed when the user clicks on an ad.
-            }
-
-            override fun onAdLeftApplication() {
-                // Code to be executed when the user has left the app.
-            }
-
-            override fun onAdClosed() {
-                // Code to be executed when the user is about to return
-                // to the app after tapping on an ad.
-            }
-        }
 
         val close: Button = findViewById(R.id.closeAbt)
         val newVer: Button = findViewById(R.id.DwnNewVer)
@@ -74,19 +45,13 @@ class About : AppCompatActivity() {
         }
 
         telegram.setOnClickListener {
-            val supportLink = "https://t.me/lscambo13_projects"
-            val openURL = Intent(Intent.ACTION_VIEW)
-            openURL.data = Uri.parse(supportLink)
-            startActivity(openURL)
+            mainActivity.supportClick()
         }
 
         shr.setOnClickListener {
-            intent = Intent(Intent.ACTION_SEND)
-            intent.type = "text/plain"
-            val message =
-                "Check out this amazing app that lets you chat with someone on WhatsApp without needing to save their phone number\nbit.ly/3gWV4rL"
-            intent.putExtra(Intent.EXTRA_TEXT, message)
-            startActivity(Intent.createChooser(intent, "Show Love by Sharing"))
+            mainActivity.shareClick()
+
+
         }
 
         var animRun = 0
@@ -113,8 +78,9 @@ class About : AppCompatActivity() {
 
         }
 
-        menu.setOnClickListener {
-            //TODO - - CREATE CLASS FOR MENUCLICK()
+        menu_btn.setOnClickListener {
+            menu_btn.visibility = View.GONE
+            //mainActivity.menuClick()
         }
     }
 }

@@ -184,7 +184,7 @@
         app:layout_constraintStart_toStartOf="parent" />
 
     <ImageView
-        android:id="@+id/menu"
+        android:id="@+id/menu_btn"
         android:layout_width="32dp"
         android:layout_height="32dp"
         android:layout_marginTop="42dp"

@@ -93,7 +93,7 @@
 
                 <EditText
                     android:id="@+id/phnNum1"
-                    android:layout_width="180dp"
+                    android:layout_width="140dp"
                     android:layout_height="50dp"
                     android:fontFamily="@font/din"
                     android:gravity="center|start"
@@ -102,7 +102,7 @@
                     android:importantForAutofill="no"
                     android:inputType="phone"
                     android:singleLine="true"
-                    android:padding="12dp"
+                    android:padding="8dp"
                     android:textColor="@color/colorTextSummary"
                     android:textColorHint="@android:color/darker_gray"
                     android:textSize="20sp"
@@ -198,7 +198,7 @@
         app:layout_constraintStart_toStartOf="parent" />
 
     <ImageView
-        android:id="@+id/menu"
+        android:id="@+id/menu_btn"
         android:layout_width="32dp"
         android:layout_height="32dp"
         android:layout_marginTop="42dp"
@@ -211,7 +211,7 @@
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@drawable/menu"
         app:tint="@color/colorText"
-        app:tintMode="src_atop"
+        app:tintMode="src_in"
         tools:ignore="ContentDescription"
         android:focusable="true" />
 

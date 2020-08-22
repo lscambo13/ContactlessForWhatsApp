@@ -9,10 +9,9 @@ class SplashActivity : AppCompatActivity() {
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
-
-        AppCompatDelegate.setDefaultNightMode(Preferences(this).getCurrentTheme())
-
         super.onCreate(savedInstanceState)
+        val loadTheme = Preferences(this).getCurrentTheme()
+        AppCompatDelegate.setDefaultNightMode(loadTheme)
         startActivity(Intent(this, MainActivity::class.java))
         finish()
     }
