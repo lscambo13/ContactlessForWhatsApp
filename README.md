@@ -9,6 +9,9 @@ Latest version:<br>
 
 [Check "releases" for download](https://github.com/lscambo13/ContactlessForWhatsApp/releases)
 
+[Check "screenshots" for preview](https://github.com/lscambo13/ContactlessForWhatsApp/tree/master/screenshots)
+
+
 ---------------------------------------------------------------
 
 Authors:<br>
@@ -53,5 +56,4 @@ Changes in v1.01<br>
 &nbsp;&nbsp;&nbsp;&nbsp;-Initial public release
 
 ---------------------------------------------------------------
-![IMAGE](https://github.com/lscambo13/ContactlessForWhatsApp/raw/master/screenshots/Screenshot_2020-07-14-17-11-30-106_com.lscambo13.contactlessForWhatsApp.jpg)
-![IMAGE](https://github.com/lscambo13/ContactlessForWhatsApp/raw/master/screenshots/Screenshot_2020-07-14-17-11-39-021_com.lscambo13.contactlessForWhatsApp.jpg)
+
