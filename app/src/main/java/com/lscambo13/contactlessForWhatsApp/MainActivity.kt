@@ -38,7 +38,7 @@ open class MainActivity : AppCompatActivity() {
                 builder.setMessage(R.string.dialogMessage)
                 //builder.setIcon(android.R.drawable.ic_dialog_info)
                 //performing positive action
-                builder.setPositiveButton("Continue") { dialogInterface, which ->
+                builder.setPositiveButton("Continue") { _, _ ->
                     Preferences(this).setFirstRun(false)}
                 // Create the AlertDialog
                 val alertDialog: AlertDialog = builder.create()
@@ -208,6 +208,10 @@ open class MainActivity : AppCompatActivity() {
                     about()
                     true
                 }
+                R.id.changelog -> {
+                    changelog()
+                    true
+                }
                 else -> false
             }
 
@@ -227,6 +231,13 @@ open class MainActivity : AppCompatActivity() {
         val supportLink = "https://t.me/lscambo13_projects"
         val openURL = Intent(Intent.ACTION_VIEW)
         openURL.data = Uri.parse(supportLink)
+        startActivity(openURL)
+    }
+
+    fun changelog() {
+        val changelogLink = "https://github.com/lscambo13/ContactlessForWhatsApp/commits/master"
+        val openURL = Intent(Intent.ACTION_VIEW)
+        openURL.data = Uri.parse(changelogLink)
         startActivity(openURL)
     }
 

@@ -6,9 +6,10 @@
     <string name="back">Back</string>
     <string name="exit">Exit</string>
     <string name="about">About</string>
+    <string name="changelog">Changelog</string>
     <string name="version">Version 2.0</string>
-    <string name="dialogTitle">What\'s new in version 2.0</string>
-    <string name="dialogMessage">Completely revamped user interface\nAdded theme options\nBetter experience in input</string>
+    <string name="dialogTitle">What\'s New in v2.0</string>
+    <string name="dialogMessage">1. Brand new UI and UX\n2. Improved phone number formatting\n3. Added three theme options\n4. New animations\n5. Optimized resources\n\nSkipped v1.4 and v1.5 due to major under the hood improvements, check Github for more detail</string>
     <string name="about_text">\n\nVersion 2.0\nFree software under GNU GPL v3.0\n\nAn app to let you chat with others on WhatsApp without ever needing to actually save their phone number in contacts.\n\nCreated by:\nLSCAMBO13 and MSC24X\n\n</string>
     <string name="update">Check for updates</string>
     <string name="main_ads">ca-app-pub-2978500497338722/8267326157</string>

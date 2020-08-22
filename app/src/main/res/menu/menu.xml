@@ -23,9 +23,11 @@
         </menu>
     </item>
     <item
+        android:id="@+id/changelog"
+        android:title="@string/changelog"/>
+    <item
         android:id="@+id/about"
-        android:title="@string/about"
-        />
+        android:title="@string/about" />
 
     <item
         android:id="@+id/exit"
