@@ -24,7 +24,8 @@ Share your feedback at [t.me/lscambo13_projects](https://t.me/lscambo13_projects
 
 #### Please leave a ❤ on your way out. ##
 </code>
----------------------------------------------------------------<br>
+
+---------------------------------------------------------------
 
 What's New in v2.0<br>
 
@@ -33,7 +34,6 @@ What's New in v2.0<br>
 &nbsp;&nbsp;&nbsp;&nbsp;-Added three theme options<br>
 &nbsp;&nbsp;&nbsp;&nbsp;-New animations<br>
 &nbsp;&nbsp;&nbsp;&nbsp;-Optimized resources<br>
-<br>
 Skipped v1.4 and v1.5 due to major under the hood improvements, check Github for more detail<br>
 
 
