@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
-<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+<manifest
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     package="com.lscambo13.contactlessForWhatsApp">
 
@@ -14,7 +15,6 @@
         <meta-data
             android:name="com.google.android.gms.ads.APPLICATION_ID"
             android:value="ca-app-pub-2978500497338722~3218997697" />
-
         <activity android:name=".About"/>
         <activity
             android:name=".MainActivity"
@@ -28,7 +28,7 @@
             </intent-filter>
         </activity>
         <!-- Set custom default icon. This is used when no icon is set for incoming notification messages.
-     See README(https://goo.gl/l4GJaQ) for more. -->
+             See README(https://goo.gl/l4GJaQ) for more. -->
         <!--
         <meta-data
             android:name="com.google.firebase.messaging.default_notification_icon"

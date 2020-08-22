@@ -18,6 +18,8 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.app.AppCompatDelegate
 import com.google.android.gms.ads.AdRequest
 import com.google.android.gms.ads.AdView
+import com.google.android.gms.ads.MobileAds
+import com.google.android.gms.ads.RequestConfiguration
 import kotlinx.android.synthetic.main.activity_main.*
 import java.util.*
 
@@ -65,9 +67,9 @@ open class MainActivity : AppCompatActivity() {
         about.startAnimation(animateButtonAbout)
 
 
-        /* val testDeviceIds = listOf("5D4AF9D840DDE3EAE66D464C754BF20D", "83CF9B4C6D12079FEB5BA7155E48C9E6")
+        val testDeviceIds = listOf("5D4AF9D840DDE3EAE66D464C754BF20D", "83CF9B4C6D12079FEB5BA7155E48C9E6")
         val configuration = RequestConfiguration.Builder().setTestDeviceIds(testDeviceIds).build()
-        MobileAds.setRequestConfiguration(configuration)*/
+        MobileAds.setRequestConfiguration(configuration)
 
         val adView = findViewById<AdView>(R.id.adView)
         val adReq = AdRequest.Builder().build()

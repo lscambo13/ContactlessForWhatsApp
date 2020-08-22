@@ -170,7 +170,7 @@
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         ads:adSize="BANNER"
-        ads:adUnitId="@string/main_ads"
+        ads:adUnitId="@string/test_ads"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"

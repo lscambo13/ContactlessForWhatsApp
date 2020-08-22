@@ -10,6 +10,8 @@ class Preferences(context: Context) {
     val preferenceIDTheme = "CurrentTheme"
     val preferenceIDFirstRun = "FirstRun"
 
+    //TODO - - ADD FIRSTRUN DETECTION IN CASE OF UPDATE TO V2.X
+
     val preferenceTheme: SharedPreferences =
         context.getSharedPreferences(preferenceThemeFile, Context.MODE_PRIVATE)
 
