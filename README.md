@@ -1,4 +1,4 @@
-![COVER](https://github.com/lscambo13/ContactlessForWhatsApp/raw/master/screenshots/banner.png)
+![COVER](https://github.com/lscambo13/ContactlessForWhatsApp/raw/master/screenshots/banner-xda.png)
 <code>
 
 An android app to let you chat with others on WhatsApp without ever needing to actually save their phone number in your contacts.
