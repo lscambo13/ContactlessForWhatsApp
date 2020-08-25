@@ -7,9 +7,11 @@ Latest version:<br>
 
 &nbsp;&nbsp;&nbsp;&nbsp;2.0 (22/08/2020)
 
-[Check "releases" for download](https://github.com/lscambo13/ContactlessForWhatsApp/releases)
+Available on XDA Labs:
+https://labs.xda-developers.com/store/app/com.lscambo13.contactlessForWhatsApp
 
-[Check "screenshots" for preview](https://github.com/lscambo13/ContactlessForWhatsApp/tree/master/screenshots)
+Report bugs or discuss:
+https://forum.xda-developers.com/android/apps-games/5-0-contactless-whatsapp-t4151497
 
 
 ---------------------------------------------------------------
@@ -23,9 +25,9 @@ and all those nice people on StackOverflow :)
 
 ---------------------------------------------------------------
 
-Share your feedback at [t.me/lscambo13_projects](https://t.me/lscambo13_projects)
+Share your feedback on the XDA thread
 
-#### Please leave a ❤ on your way out. ##
+#### Please leave a ⭐ on your way out. ##
 </code>
 
 ---------------------------------------------------------------
