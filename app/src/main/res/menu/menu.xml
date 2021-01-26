@@ -2,8 +2,10 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
     <!--
     TODO - - ENABLE RADIO BUTTONS
-    TODO - - IMPLEMENT THEME
     -->
+
+
+
     <item
         android:title="@string/version"
         android:enabled="false"/>
