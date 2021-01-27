@@ -3,7 +3,6 @@ package com.lscambo13.contactlessForWhatsApp
 import android.content.Context
 import android.content.Intent
 import android.net.Uri
-import androidx.core.content.ContextCompat.startActivity
 
 
 class Menu {
@@ -29,7 +28,6 @@ class Menu {
 
             context.startActivity(openURL)
         }
-
     }
 
 /*

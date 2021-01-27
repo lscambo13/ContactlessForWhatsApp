@@ -9,10 +9,7 @@ import android.telephony.TelephonyManager
 import android.view.animation.Animation
 import android.view.animation.AnimationUtils
 import android.view.inputmethod.EditorInfo
-import android.widget.EditText
-import android.widget.ImageView
-import android.widget.PopupMenu
-import android.widget.Toast
+import android.widget.*
 import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.app.AppCompatDelegate
@@ -30,24 +27,43 @@ open class MainActivity : AppCompatActivity() {
         setContentView(R.layout.activity_main)
 
 
-        val isFirstRun: Boolean = Preferences(this).getFirstRun()
-        when {
-            (isFirstRun) -> {
+        val isFirstRun: Int = Preferences(this).getFirstRun()
+        when(isFirstRun) {
+            (0) -> {
                 val builder = AlertDialog.Builder(this)
                 //set title for alert dialog
-                builder.setTitle(R.string.dialogTitle)
+                builder.setTitle(R.string.welcomeTitle)
                 //set message for alert dialog
-                builder.setMessage(R.string.dialogMessage)
+                builder.setMessage(R.string.welcomeMessage)
                 //builder.setIcon(android.R.drawable.ic_dialog_info)
                 //performing positive action
                 builder.setPositiveButton("Continue") { _, _ ->
-                    Preferences(this).setFirstRun(false)}
+                    Preferences(this).setFirstRun(BuildConfig.VERSION_CODE)}
                 // Create the AlertDialog
                 val alertDialog: AlertDialog = builder.create()
                 // Set other dialog properties
                 alertDialog.setCancelable(false)
                 alertDialog.show()
             }
+
+            in 1 until BuildConfig.VERSION_CODE -> {
+                val builder = AlertDialog.Builder(this)
+                //set title for alert dialog
+                builder.setTitle(R.string.updateTitle)
+                //set message for alert dialog
+                builder.setMessage(R.string.updateMessage)
+                //builder.setIcon(android.R.drawable.ic_dialog_info)
+                //performing positive action
+                builder.setPositiveButton("Continue") { _, _ ->
+                    Preferences(this).setFirstRun(BuildConfig.VERSION_CODE)}
+                // Create the AlertDialog
+                val alertDialog: AlertDialog = builder.create()
+                // Set other dialog properties
+                alertDialog.setCancelable(false)
+                alertDialog.show()
+            }
+
+
         }
 
 
@@ -190,6 +206,9 @@ open class MainActivity : AppCompatActivity() {
                 R.id.sysDef -> {
                     AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_FOLLOW_SYSTEM)
                     preferences.setCurrentTheme(AppCompatDelegate.MODE_NIGHT_FOLLOW_SYSTEM)
+                    //findViewById<RadioButton>(R.id.sysDef).setChecked(true)
+                    menuPopup.menu.setGroupCheckable(1, true, true)
+                    findViewById<RadioButton>(R.id.sysDef).isChecked = true
                     true
                 }
                 R.id.day -> {

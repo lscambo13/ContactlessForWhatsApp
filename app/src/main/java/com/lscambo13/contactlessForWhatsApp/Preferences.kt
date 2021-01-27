@@ -10,8 +10,6 @@ class Preferences(context: Context) {
     val preferenceIDTheme = "CurrentTheme"
     val preferenceIDFirstRun = "FirstRun"
 
-    //TODO - - ADD FIRSTRUN DETECTION IN CASE OF UPDATE TO V2.X
-
     val preferenceTheme: SharedPreferences =
         context.getSharedPreferences(preferenceThemeFile, Context.MODE_PRIVATE)
 
@@ -22,8 +20,8 @@ class Preferences(context: Context) {
         return preferenceTheme.getInt(preferenceIDTheme, AppCompatDelegate.MODE_NIGHT_FOLLOW_SYSTEM)
     }
 
-    fun getFirstRun(): Boolean {
-        return preferenceFirstRun.getBoolean(preferenceIDFirstRun, true)
+    fun getFirstRun(): Int {
+        return preferenceFirstRun.getInt(preferenceIDFirstRun, 0)
     }
 
     fun setCurrentTheme(theme: Int) {
@@ -32,9 +30,9 @@ class Preferences(context: Context) {
         editor.apply()
     }
 
-    fun setFirstRun(run: Boolean) {
+    fun setFirstRun(run: Int) {
         val editor = preferenceFirstRun.edit()
-        editor.putBoolean(preferenceIDFirstRun, run)
+        editor.putInt(preferenceIDFirstRun, run)
         editor.apply()
     }
 }
