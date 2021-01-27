@@ -13,6 +13,8 @@ import androidx.appcompat.app.AppCompatActivity
 import com.google.android.gms.ads.AdRequest
 import com.google.android.gms.ads.AdView
 import kotlinx.android.synthetic.main.activity_about.*
+import kotlinx.android.synthetic.main.activity_about.menu_btn
+import kotlinx.android.synthetic.main.activity_main.*
 
 class About : AppCompatActivity() {
 
@@ -20,7 +22,6 @@ class About : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_about)
 
-        val mainActivity = MainActivity()
         val adView = findViewById<AdView>(R.id.adView)
         val adReq = AdRequest.Builder().build()
         adView.loadAd(adReq)
@@ -45,13 +46,11 @@ class About : AppCompatActivity() {
         }
 
         telegram.setOnClickListener {
-            mainActivity.supportClick()
+            Menu.MenuClicks.supportClick(this)
         }
 
         shr.setOnClickListener {
-            mainActivity.shareClick()
-
-
+            Menu.MenuClicks.shareClick(this)
         }
 
         var animRun = 0

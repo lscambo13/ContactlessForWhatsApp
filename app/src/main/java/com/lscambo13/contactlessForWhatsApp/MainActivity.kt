@@ -135,11 +135,11 @@ open class MainActivity : AppCompatActivity() {
         about.setOnClickListener { about() }
 
         telegram.setOnClickListener {
-            supportClick()
+            Menu.MenuClicks.supportClick(this)
         }
 
         shr.setOnClickListener {
-            shareClick()
+            Menu.MenuClicks.shareClick(this)
         }
 
         menu_btn.setOnClickListener {
@@ -221,7 +221,7 @@ open class MainActivity : AppCompatActivity() {
     }
 
     fun shareClick(){
-        intent = Intent(Intent.ACTION_SEND)
+        val intent = Intent(Intent.ACTION_SEND)
         intent.type = "text/plain"
         val message =
             "Check out this amazing app that lets you chat with others on WhatsApp without needing to save their phone number\nbit.ly/3gWV4rL"
@@ -244,11 +244,6 @@ open class MainActivity : AppCompatActivity() {
     }
 
 }
-
-
-
-
-
 
 
 
