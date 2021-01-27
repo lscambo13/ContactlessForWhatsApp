@@ -1,21 +1,38 @@
 package com.lscambo13.contactlessForWhatsApp
 
 import android.content.Context
+import android.content.Intent
+import android.net.Uri
+import androidx.core.content.ContextCompat.startActivity
 
 
-class Menu(context: Context) {
-    val C = context
-/*
-    fun supportClick() {
-        val supportLink = "https://t.me/lscambo13_projects"
-        val openURL = Intent(Intent.ACTION_VIEW)
-        openURL.data = Uri.parse(supportLink)
-        C.startActivity(openURL)
+class Menu {
+
+    object MenuClicks {
+        fun shareClick(context: Context? ) {
+            val intent = Intent(Intent.ACTION_SEND)
+            intent.type = "text/plain"
+            val message =
+                "Check out this amazing app that lets you chat with others on WhatsApp without needing to save their phone number\nbit.ly/3gWV4rL"
+            intent.putExtra(Intent.EXTRA_TEXT, message)
+            //intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK)
+            //context?.startActivity(intent)
+            context?.startActivity(Intent.createChooser(intent, "Show Love by Sharing"))
+            //context?.startActivity(intent)
+        }
+
+        fun supportClick(context : Context) {
+            val supportLink = "https://t.me/lscambo13_projects"
+            val openURL = Intent(Intent.ACTION_VIEW)
+            openURL.data = Uri.parse(supportLink)
+            //openURL.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK)
+
+            context.startActivity(openURL)
+        }
+
     }
 
-    // TODO - - MENU CLASS
-
-
+/*
    fun about() {
        C.startActivity(Intent(C, About::class.java))
    }
@@ -51,14 +68,6 @@ class Menu(context: Context) {
        }
    }
 
-   fun shareClick(){
-       val intent = Intent(Intent.ACTION_SEND)
-       intent.type = "text/plain"
-       val message =
-           "Check out this amazing app that lets you chat with others on WhatsApp without needing to save their phone number\nbit.ly/3gWV4rL"
-       intent.putExtra(Intent.EXTRA_TEXT, message)
-       startActivity(Intent.createChooser(intent, "Show Love by Sharing"))
-   }
    */
 
 
