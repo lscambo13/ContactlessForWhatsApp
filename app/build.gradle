@@ -12,6 +12,7 @@ android {
         applicationId 'com.lscambo13.contactlessForWhatsApp'
         minSdkVersion 21
         targetSdkVersion 30
+        //2.1 = 7
         versionCode 7
         versionName '2.1'
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"

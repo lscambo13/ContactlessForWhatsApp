@@ -13,8 +13,6 @@ import androidx.appcompat.app.AppCompatActivity
 import com.google.android.gms.ads.AdRequest
 import com.google.android.gms.ads.AdView
 import kotlinx.android.synthetic.main.activity_about.*
-import kotlinx.android.synthetic.main.activity_about.menu_btn
-import kotlinx.android.synthetic.main.activity_main.*
 
 class About : AppCompatActivity() {
 
@@ -78,7 +76,7 @@ class About : AppCompatActivity() {
         }
 
         menu_btn.setOnClickListener {
-            menu_btn.visibility = View.GONE
+            //menu_btn.visibility = View.GONE
             //mainActivity.menuClick()
         }
     }
