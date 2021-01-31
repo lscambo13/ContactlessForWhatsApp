@@ -9,7 +9,10 @@ import android.telephony.TelephonyManager
 import android.view.animation.Animation
 import android.view.animation.AnimationUtils
 import android.view.inputmethod.EditorInfo
-import android.widget.*
+import android.widget.EditText
+import android.widget.ImageView
+import android.widget.PopupMenu
+import android.widget.Toast
 import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.app.AppCompatDelegate
@@ -27,6 +30,7 @@ open class MainActivity : AppCompatActivity() {
         setContentView(R.layout.activity_main)
 
         // This section detects if the app is running for the first time.
+        // Int 0 = new user
         val isFirstRun: Int = Preferences(this).getFirstRun()
         when (isFirstRun) {
             (0) -> {
@@ -179,24 +183,39 @@ open class MainActivity : AppCompatActivity() {
         val menuPopup = PopupMenu(this, menu_btn)
         menuPopup.inflate(R.menu.menu)
         menuPopup.menu.removeItem(R.id.home)
+        // This locates the previously used theme option, and checks the radio option.
+        when (Preferences(this).getCurrentTheme()) {
+            -1 -> {
+                menuPopup.menu.findItem(R.id.sysDef).isChecked = true
+            }
+            1 -> {
+                menuPopup.menu.findItem(R.id.day).isChecked = true
+            }
+            2 -> {
+                menuPopup.menu.findItem(R.id.night).isChecked = true
+            }
+        }
         menuPopup.show()
         val preferences = Preferences(this)
         menuPopup.setOnMenuItemClickListener {
             when (it!!.itemId) {
                 R.id.sysDef -> {
+                    val themeItem = menuPopup.menu.findItem(it.itemId)
+                    themeItem.isChecked = true
                     AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_FOLLOW_SYSTEM)
                     preferences.setCurrentTheme(AppCompatDelegate.MODE_NIGHT_FOLLOW_SYSTEM)
-                    //findViewById<RadioButton>(R.id.sysDef).setChecked(true)
-                    menuPopup.menu.setGroupCheckable(1, true, true)
-                    findViewById<RadioButton>(R.id.sysDef).isChecked = true
                     true
                 }
                 R.id.day -> {
+                    val themeItem = menuPopup.menu.findItem(it.itemId)
+                    themeItem.isChecked = true
                     AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO)
                     preferences.setCurrentTheme(AppCompatDelegate.MODE_NIGHT_NO)
                     true
                 }
                 R.id.night -> {
+                    val themeItem = menuPopup.menu.findItem(it.itemId)
+                    themeItem.isChecked = true
                     AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_YES)
                     preferences.setCurrentTheme(AppCompatDelegate.MODE_NIGHT_YES)
                     true

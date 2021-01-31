@@ -40,7 +40,6 @@ class Menu {
             val alertDialog: AlertDialog = builder.create()
             alertDialog.setCancelable(true)
             alertDialog.show()
-
         }
 
         // This opens GitHub commits page, Part 2.
