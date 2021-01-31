@@ -5,7 +5,7 @@ An android app to let you chat with others on WhatsApp without ever needing to a
 
 Latest version:<br>
 
-&nbsp;&nbsp;&nbsp;&nbsp;2.0 (22/08/2020)
+&nbsp;&nbsp;&nbsp;&nbsp;3.0 (31/01/2021)
 
 Available on XDA Labs:
 https://labs.xda-developers.com/store/app/com.lscambo13.contactlessForWhatsApp
@@ -31,6 +31,16 @@ Share your feedback on the XDA thread
 </code>
 
 ---------------------------------------------------------------
+
+What's New in v3.0<br>
+
+&nbsp;&nbsp;&nbsp;&nbsp;-Better theme in three-dot menu on top-right corner<br>
+&nbsp;&nbsp;&nbsp;&nbsp;-Fixed crashes on certain UI elements in About screen<br>
+&nbsp;&nbsp;&nbsp;&nbsp;-All new welcome and changelog dialogs<br>
+&nbsp;&nbsp;&nbsp;&nbsp;-Numerous under-the-hood improvements and the source code is now much easy to follow<br>
+&nbsp;&nbsp;&nbsp;&nbsp;-An easter egg. Can you find it?<br>
+Check commits for more detail<br>
+
 
 What's New in v2.0<br>
 
