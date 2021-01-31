@@ -7,17 +7,13 @@ android {
     compileSdkVersion 30
     buildToolsVersion "30.0.3"
 
-    viewBinding {
-        enabled = true
-    }
-
     defaultConfig {
         applicationId 'com.lscambo13.contactlessForWhatsApp'
         minSdkVersion 21
         targetSdkVersion 30
         // Version 2.1 = 7
-        versionCode 7
-        versionName '2.1'
+        versionCode 8
+        versionName '3.0'
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
         resConfigs "en"
     }
