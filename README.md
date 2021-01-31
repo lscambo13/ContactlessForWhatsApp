@@ -1,5 +1,5 @@
 ![COVER](https://github.com/lscambo13/ContactlessForWhatsApp/raw/master/screenshots/banner-xda.png)
-<code>
+
 
 An android app to let you chat with others on WhatsApp without ever needing to actually save their phone number in your contacts.
 
@@ -26,7 +26,6 @@ and all those nice people on StackOverflow :)
 ---------------------------------------------------------------
 
 #### Please leave a ⭐ on your way out. ##
-</code>
 
 ---------------------------------------------------------------
 
