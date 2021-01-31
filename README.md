@@ -25,8 +25,6 @@ and all those nice people on StackOverflow :)
 
 ---------------------------------------------------------------
 
-Share your feedback on the XDA thread
-
 #### Please leave a ⭐ on your way out. ##
 </code>
 
@@ -43,8 +41,7 @@ Share your feedback on the XDA thread
 
 #### Note: Uninstall any previous version before updating.
 
-
-
+---------------------------------------------------------------
 
 #### What's New in v2.0<br>
 
@@ -53,9 +50,8 @@ Share your feedback on the XDA thread
 &nbsp;&nbsp;&nbsp;&nbsp;-Added three theme options<br>
 &nbsp;&nbsp;&nbsp;&nbsp;-New animations<br>
 &nbsp;&nbsp;&nbsp;&nbsp;-Optimized resources<br>
-Skipped v1.4 and v1.5 due to major under the hood improvements, check Github for more detail<br>
 
-
+---------------------------------------------------------------
 
 #### What's New in v1.03<br>
 
@@ -67,6 +63,7 @@ Skipped v1.4 and v1.5 due to major under the hood improvements, check Github for
 &nbsp;&nbsp;&nbsp;&nbsp;-Introduced ads, please support the app<br>
 &nbsp;&nbsp;&nbsp;&nbsp;-Minor UX and UI changes<br>
 
+---------------------------------------------------------------
 
 #### What's New v1.01<br>
 
