@@ -10,6 +10,7 @@ import android.widget.Button
 import android.widget.ImageView
 import android.widget.PopupMenu
 import android.widget.TextView
+import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.app.AppCompatDelegate
 import com.google.android.gms.ads.AdRequest
@@ -83,6 +84,20 @@ class About : AppCompatActivity() {
         // This enables the three-dot menu on top-right corner, Part 1.
         menu_btn.setOnClickListener {
             threeDot()
+        }
+
+        // Easter egg
+        val logo: ImageView = imageView
+        logo.setOnLongClickListener {
+            val builder = AlertDialog.Builder(this)
+            builder.setTitle(R.string.easterEggTitle)
+            builder.setMessage(R.string.easterEggMessage)
+            builder.setPositiveButton("Cheers") { _, _ ->
+            }
+            val alertDialog: AlertDialog = builder.create()
+            alertDialog.setCancelable(false)
+            alertDialog.show()
+            true
         }
     }
 
