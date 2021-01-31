@@ -40,6 +40,14 @@ open class MainActivity : AppCompatActivity() {
                 builder.setPositiveButton("Continue") { _, _ ->
                     Preferences(this).setFirstRun(BuildConfig.VERSION_CODE)
                 }
+                builder.setNegativeButton("Source code") { _, _ ->
+                    Preferences(this).setFirstRun(BuildConfig.VERSION_CODE)
+                    Menu.MenuClicks.github(this)
+                }
+                builder.setNeutralButton("What's New") { _, _ ->
+                    Preferences(this).setFirstRun(BuildConfig.VERSION_CODE)
+                    Menu.MenuClicks.changelog(this)
+                }
                 val alertDialog: AlertDialog = builder.create()
                 alertDialog.setCancelable(false)
                 alertDialog.show()
@@ -52,7 +60,7 @@ open class MainActivity : AppCompatActivity() {
                 builder.setPositiveButton("Continue") { _, _ ->
                     Preferences(this).setFirstRun(BuildConfig.VERSION_CODE)
                 }
-                builder.setNeutralButton("Open Github") { _, _ ->
+                builder.setNeutralButton("More on GitHub") { _, _ ->
                     Preferences(this).setFirstRun(BuildConfig.VERSION_CODE)
                     Menu.MenuClicks.github(this)
                 }

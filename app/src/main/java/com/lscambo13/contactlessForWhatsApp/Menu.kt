@@ -44,7 +44,7 @@ class Menu {
 
         // This opens GitHub commits page, Part 2.
         fun github(context: Context) {
-            val changelogLink = "https://github.com/lscambo13/ContactlessForWhatsApp/commits/master"
+            val changelogLink = "https://github.com/lscambo13/ContactlessForWhatsApp"
             val openURL = Intent(Intent.ACTION_VIEW)
             openURL.data = Uri.parse(changelogLink)
             context.startActivity(openURL)
