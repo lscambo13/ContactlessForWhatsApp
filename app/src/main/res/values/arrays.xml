@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string-array name="DialingCountryCode" >
+    <string-array name="DialingCountryCode">
         <item>32,BE</item>
         <item>501,BZ</item>
         <item>229,BJ</item>

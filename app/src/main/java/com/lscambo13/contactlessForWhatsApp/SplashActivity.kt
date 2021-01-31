@@ -10,8 +10,12 @@ class SplashActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+
+        // This loads the last used theme, and applies it.
         val loadTheme = Preferences(this).getCurrentTheme()
         AppCompatDelegate.setDefaultNightMode(loadTheme)
+
+        // This proceeds to the home screen of the app.
         startActivity(Intent(this, MainActivity::class.java))
         finish()
     }
