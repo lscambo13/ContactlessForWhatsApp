@@ -174,7 +174,7 @@
         android:foregroundTint="@color/colorAccent"
         android:foregroundTintMode="screen"
         ads:adSize="BANNER"
-        ads:adUnitId="@string/test_ads"
+        ads:adUnitId="@string/main_ads"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
