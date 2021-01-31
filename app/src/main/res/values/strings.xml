@@ -6,6 +6,7 @@
     <string name="back">Back</string>
     <string name="exit">Exit</string>
     <string name="about">About</string>
+    <string name="home">Home</string>
     <string name="changelog">Changelog</string>
     <string name="version">Version 2.1</string>
     <string name="welcomeTitle">Welcome new user</string>

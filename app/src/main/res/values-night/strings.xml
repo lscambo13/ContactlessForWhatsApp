@@ -1,10 +1,3 @@
 <resources>
-    <!--string name="app_name">Contactless for WhatsApp</string>
-    <string name="example1">INPUT PHONE NUMBER</string>
-    <string name="chat">Chat</string>
-    <string name="back">Back</string>
-    <string name="about">About</string>
-    <string name="about_text">\n\nVersion 1.04\nFree software under GNU GPL v3.0\n\nAn app to let you chat with others on WhatsApp without ever needing to actually save their phone number in contacts.\n\nCreated by:\nLSCAMBO13 and MSC24X\n\n</string>
-    <string name="update">Check for updates</string>
-    <string name="easter_egg">Made with ❤ in India</string-->
+
 </resources>

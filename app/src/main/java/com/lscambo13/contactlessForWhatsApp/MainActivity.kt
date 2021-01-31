@@ -26,47 +26,39 @@ open class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-
+        // This section detects if the app is running for the first time.
         val isFirstRun: Int = Preferences(this).getFirstRun()
-        when(isFirstRun) {
+        when (isFirstRun) {
             (0) -> {
                 val builder = AlertDialog.Builder(this)
-                //set title for alert dialog
                 builder.setTitle(R.string.welcomeTitle)
-                //set message for alert dialog
                 builder.setMessage(R.string.welcomeMessage)
-                //builder.setIcon(android.R.drawable.ic_dialog_info)
-                //performing positive action
                 builder.setPositiveButton("Continue") { _, _ ->
-                    Preferences(this).setFirstRun(BuildConfig.VERSION_CODE)}
-                // Create the AlertDialog
+                    Preferences(this).setFirstRun(BuildConfig.VERSION_CODE)
+                }
                 val alertDialog: AlertDialog = builder.create()
-                // Set other dialog properties
                 alertDialog.setCancelable(false)
                 alertDialog.show()
             }
-
+            // This section shows the update dialog in case it has been updated.
             in 1 until BuildConfig.VERSION_CODE -> {
                 val builder = AlertDialog.Builder(this)
-                //set title for alert dialog
                 builder.setTitle(R.string.updateTitle)
-                //set message for alert dialog
                 builder.setMessage(R.string.updateMessage)
-                //builder.setIcon(android.R.drawable.ic_dialog_info)
-                //performing positive action
                 builder.setPositiveButton("Continue") { _, _ ->
-                    Preferences(this).setFirstRun(BuildConfig.VERSION_CODE)}
-                // Create the AlertDialog
+                    Preferences(this).setFirstRun(BuildConfig.VERSION_CODE)
+                }
+                builder.setNeutralButton("Open Github") { _, _ ->
+                    Preferences(this).setFirstRun(BuildConfig.VERSION_CODE)
+                    Menu.MenuClicks.github(this)
+                }
                 val alertDialog: AlertDialog = builder.create()
-                // Set other dialog properties
                 alertDialog.setCancelable(false)
                 alertDialog.show()
             }
-
-
         }
 
-
+        // These are the animations users see post-splash screen.
         val animateHeading: Animation =
             AnimationUtils.loadAnimation(applicationContext, R.anim.heading_anim)
         val animateButtonChat: Animation =
@@ -75,50 +67,29 @@ open class MainActivity : AppCompatActivity() {
             AnimationUtils.loadAnimation(applicationContext, R.anim.button_about_anim)
         val animateLogo: Animation =
             AnimationUtils.loadAnimation(applicationContext, R.anim.logo_anim)
-
         textView2.startAnimation(animateHeading)
         menu_btn.startAnimation(animateHeading)
         imageView.startAnimation(animateLogo)
         chat.startAnimation(animateButtonChat)
         about.startAnimation(animateButtonAbout)
 
-
-        val testDeviceIds = listOf("5D4AF9D840DDE3EAE66D464C754BF20D", "83CF9B4C6D12079FEB5BA7155E48C9E6")
+        // Test device for testing purposes.
+        // Not intended for production builds.
+        val testDeviceIds =
+            listOf("5D4AF9D840DDE3EAE66D464C754BF20D", "83CF9B4C6D12079FEB5BA7155E48C9E6")
         val configuration = RequestConfiguration.Builder().setTestDeviceIds(testDeviceIds).build()
         MobileAds.setRequestConfiguration(configuration)
 
+        // Load ads.
         val adView = findViewById<AdView>(R.id.adView)
         val adReq = AdRequest.Builder().build()
         adView.loadAd(adReq)
 
-        /*adView.adListener = object : AdListener() {
-            override fun onAdLoaded() {
-                // Code to be executed when an ad finishes loading.
-            }
-            override fun onAdFailedToLoad(errorCode: Int) {
-                adView.loadAd(adReq)
-            }
-            override fun onAdOpened() {
-                // Code to be executed when an ad opens an overlay that
-                // covers the screen.
-            }
-            override fun onAdClicked() {
-                // Code to be executed when the user clicks on an ad.
-            }
-            override fun onAdLeftApplication() {
-                // Code to be executed when the user has left the app.
-            }
-            override fun onAdClosed() {
-                // Code to be executed when the user is about to return
-                // to the app after tapping on an ad.
-            }
-        }*/
-
-        val shr = findViewById<ImageView>(R.id.share)
-        val telegram = findViewById<ImageView>(R.id.telegram)
+        // This opens the virtual keyboard automatically on app start.
         phnNum1.requestFocus()
-        val countryCodes:Array<String> = resources.getStringArray(R.array.DialingCountryCode)
 
+        // This automatically pulls and writes the country code in input box.
+        val countryCodes: Array<String> = resources.getStringArray(R.array.DialingCountryCode)
         val tm =
             getSystemService(Context.TELEPHONY_SERVICE) as TelephonyManager
         val countryCodeValue = tm.networkCountryIso.toUpperCase(Locale.ROOT)
@@ -130,14 +101,16 @@ open class MainActivity : AppCompatActivity() {
                 break
             }
         }
-
         val setCode = "+$countryDialCode"
         phnNum1.setText(setCode)
         val phnPos = phnNum1.length()
         phnNum1.setSelection(phnPos)
 
-        phnNum1.addTextChangedListener(object : PhoneNumberFormattingTextWatcher(){})
+        // This enables the formatting of the phone number on-the-fly.
+        phnNum1.addTextChangedListener(object : PhoneNumberFormattingTextWatcher() {})
 
+        // This changes the virtual keyboard's "return key" to "send",
+        // and leads the user to WhatsApp.
         findViewById<EditText>(R.id.phnNum1).setOnEditorActionListener { _, actionId, _ ->
             return@setOnEditorActionListener when (actionId) {
                 EditorInfo.IME_ACTION_SEND -> {
@@ -148,29 +121,37 @@ open class MainActivity : AppCompatActivity() {
             }
         }
 
-        about.setOnClickListener { about() }
+        // This enables the about button on main screen, Part 1.
+        about.setOnClickListener { Menu.MenuClicks.about(this) }
 
+        // This enables the telegram button to open my support group.
+        val telegram = findViewById<ImageView>(R.id.telegram)
         telegram.setOnClickListener {
             Menu.MenuClicks.supportClick(this)
         }
 
+        // This enables the share button with a cool message.
+        val shr = findViewById<ImageView>(R.id.share)
         shr.setOnClickListener {
             Menu.MenuClicks.shareClick(this)
         }
 
+        // This enables the three-dot menu on top-right corner, Part 1.
         menu_btn.setOnClickListener {
-            menuClick()
+            threeDot()
         }
 
+        // This leads the user to WhatsApp, Part 1.
         chat.setOnClickListener {
-
             adView.loadAd(adReq)
             start()
         }
     }
 
-
-    fun start() {
+    // This leads the user to WhatsApp, Part 2.
+    private fun start() {
+        // The following checks if validity of the input number,
+        // and prevents the further action if needed.
         when {
             !(phnNum1.text.startsWith("+")) -> {
                 Toast.makeText(applicationContext, "Check Country Code", Toast.LENGTH_LONG)
@@ -192,17 +173,16 @@ open class MainActivity : AppCompatActivity() {
         }
     }
 
-    fun about() {
-        startActivity(Intent(this, About::class.java))
-    }
-
-    fun menuClick() {
+    // This enables the three-dot menu on top-right corner, Part 2.
+    // Here options are different from about screen.
+    private fun threeDot() {
         val menuPopup = PopupMenu(this, menu_btn)
         menuPopup.inflate(R.menu.menu)
+        menuPopup.menu.removeItem(R.id.home)
         menuPopup.show()
         val preferences = Preferences(this)
         menuPopup.setOnMenuItemClickListener {
-            when(it!!.itemId){
+            when (it!!.itemId) {
                 R.id.sysDef -> {
                     AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_FOLLOW_SYSTEM)
                     preferences.setCurrentTheme(AppCompatDelegate.MODE_NIGHT_FOLLOW_SYSTEM)
@@ -226,11 +206,11 @@ open class MainActivity : AppCompatActivity() {
                     true
                 }
                 R.id.about -> {
-                    about()
+                    Menu.MenuClicks.about(this)
                     true
                 }
                 R.id.changelog -> {
-                    changelog()
+                    Menu.MenuClicks.changelog(this)
                     true
                 }
                 else -> false
@@ -239,28 +219,6 @@ open class MainActivity : AppCompatActivity() {
         }
     }
 
-    fun shareClick(){
-        val intent = Intent(Intent.ACTION_SEND)
-        intent.type = "text/plain"
-        val message =
-            "Check out this amazing app that lets you chat with others on WhatsApp without needing to save their phone number\nbit.ly/3gWV4rL"
-        intent.putExtra(Intent.EXTRA_TEXT, message)
-        startActivity(Intent.createChooser(intent, "Show Love by Sharing"))
-    }
-
-    fun supportClick() {
-        val supportLink = "https://t.me/lscambo13_projects"
-        val openURL = Intent(Intent.ACTION_VIEW)
-        openURL.data = Uri.parse(supportLink)
-        startActivity(openURL)
-    }
-
-    fun changelog() {
-        val changelogLink = "https://github.com/lscambo13/ContactlessForWhatsApp/commits/master"
-        val openURL = Intent(Intent.ACTION_VIEW)
-        openURL.data = Uri.parse(changelogLink)
-        startActivity(openURL)
-    }
 
 }
 
