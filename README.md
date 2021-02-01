@@ -24,23 +24,23 @@ and all those nice people on StackOverflow :)
 ---------------------------------------------------------------
 
 #### What's New in v3.1
--This release aims to correct issues displaying ripple effects on certain UI elements.
--The accuracy of help text, exit option functionality, and easter egg should be fixed now.
--This version updates flawlessly when updating from the v3.0 release.
--Uninstalling versions older than v3.0 is still a mandatory requirement.
+-This release aims to correct issues displaying ripple effects on certain UI elements.<br>
+-The accuracy of help text, exit option functionality, and easter egg should be fixed now.<br>
+-This version updates flawlessly when updating from the v3.0 release.<br>
+-Uninstalling versions older than v3.0 is still a mandatory requirement.<br>
 
 ---------------------------------------------------------------
 
 #### What's New in v3.0
--The three-dot menu on the top-right corner now matches the default theme.
--Fixed crashes on certain UI elements in the About screen.
--All new welcome and changelog dialogs.
--An easter egg. Can you find it?
--Numerous under-the-hood improvements and bugs fixed.
--The source code is now much cleaner.
--Check commit history for more detail.
-
-#### Note: Uninstall any version prior to v3.0 before updating.
+-The three-dot menu on the top-right corner now matches the default theme.<br>
+-Fixed crashes on certain UI elements in the About screen.<br>
+-All new welcome and changelog dialogs.<br>
+-An easter egg. Can you find it?<br>
+-Numerous under-the-hood improvements and bugs fixed.<br>
+-The source code is now much cleaner.<br>
+-Check commit history for more detail.<br>
+<br>
+#### Note: Uninstall any version prior to v3.0 before updating.<br>
 
 ---------------------------------------------------------------
 
