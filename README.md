@@ -3,16 +3,10 @@
 
 An android app to let you chat with others on WhatsApp without ever needing to actually save their phone number in your contacts.
 
-#### Latest version:<br>
-
-#### &nbsp;&nbsp;&nbsp;&nbsp;3.0 (31/01/2021)
-
-Available on XDA Labs:
-https://labs.xda-developers.com/store/app/com.lscambo13.contactlessForWhatsApp
+#### Latest version: v3.1 (01/02/2021)
 
 Report bugs or discuss:
 https://forum.xda-developers.com/android/apps-games/5-0-contactless-whatsapp-t4151497
-
 
 ---------------------------------------------------------------
 
@@ -29,16 +23,24 @@ and all those nice people on StackOverflow :)
 
 ---------------------------------------------------------------
 
-#### What's New in v3.0<br>
+#### What's New in v3.1
+-This release aims to correct issues displaying ripple effects on certain UI elements.
+-The accuracy of help text, exit option functionality, and easter egg should be fixed now.
+-This version updates flawlessly when updating from the v3.0 release.
+-Uninstalling versions older than v3.0 is still a mandatory requirement.
 
-&nbsp;&nbsp;&nbsp;&nbsp;-Better theme in three-dot menu on top-right corner<br>
-&nbsp;&nbsp;&nbsp;&nbsp;-Fixed crashes on certain UI elements in About screen<br>
-&nbsp;&nbsp;&nbsp;&nbsp;-All new welcome and changelog dialogs<br>
-&nbsp;&nbsp;&nbsp;&nbsp;-Numerous under-the-hood improvements and the source code is now much easy to follow<br>
-&nbsp;&nbsp;&nbsp;&nbsp;-An easter egg. Can you find it?<br>
-&nbsp;&nbsp;&nbsp;&nbsp;-Check commits for more detail<br>
+---------------------------------------------------------------
 
-#### Note: Uninstall any previous version before updating.
+#### What's New in v3.0
+-The three-dot menu on the top-right corner now matches the default theme.
+-Fixed crashes on certain UI elements in the About screen.
+-All new welcome and changelog dialogs.
+-An easter egg. Can you find it?
+-Numerous under-the-hood improvements and bugs fixed.
+-The source code is now much cleaner.
+-Check commit history for more detail.
+
+#### Note: Uninstall any version prior to v3.0 before updating.
 
 ---------------------------------------------------------------
 
