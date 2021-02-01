@@ -13,9 +13,11 @@ import android.widget.TextView
 import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.app.AppCompatDelegate
+import androidx.core.content.ContextCompat
 import com.google.android.gms.ads.AdRequest
 import com.google.android.gms.ads.AdView
 import kotlinx.android.synthetic.main.activity_about.*
+import kotlin.system.exitProcess
 
 class About : AppCompatActivity() {
 
@@ -94,6 +96,14 @@ class About : AppCompatActivity() {
             builder.setMessage(R.string.easterEggMessage)
             builder.setPositiveButton("Cheers") { _, _ ->
             }
+            when (Preferences(this).getEasterEgg()) {
+                false -> {
+                    builder.setNeutralButton("") { _, _ ->
+                        Preferences(this).setEasterEgg(true)
+                    }
+                    builder.setNeutralButtonIcon(ContextCompat.getDrawable(this, R.drawable.egg))
+                }
+            }
             val alertDialog: AlertDialog = builder.create()
             alertDialog.setCancelable(false)
             alertDialog.show()
@@ -145,8 +155,8 @@ class About : AppCompatActivity() {
                     true
                 }
                 R.id.exit -> {
-                    finish()
-                    true
+                    this.finish()
+                    exitProcess(0)
                 }
                 R.id.home -> {
                     Menu.MenuClicks.home(this)

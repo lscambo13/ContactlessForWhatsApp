@@ -210,11 +210,12 @@
         android:elevation="12dp"
         android:focusable="true"
         android:padding="4dp"
+        android:theme="@style/Highlight"
         app:layout_constraintEnd_toEndOf="@+id/textView2"
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@drawable/menu"
         app:tint="@color/colorText"
-        app:tintMode="src_in"
+        app:tintMode="src_atop"
         tools:ignore="ContentDescription" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

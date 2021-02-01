@@ -20,6 +20,7 @@ import com.google.android.gms.ads.AdRequest
 import com.google.android.gms.ads.AdView
 import kotlinx.android.synthetic.main.activity_main.*
 import java.util.*
+import kotlin.system.exitProcess
 
 open class MainActivity : AppCompatActivity() {
 
@@ -220,8 +221,8 @@ open class MainActivity : AppCompatActivity() {
                     true
                 }
                 R.id.exit -> {
-                    finish()
-                    true
+                    this.finish()
+                    exitProcess(0)
                 }
                 R.id.about -> {
                     Menu.MenuClicks.about(this)

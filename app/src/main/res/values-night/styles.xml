@@ -1,4 +1,5 @@
 <resources xmlns:tools="http://schemas.android.com/tools">
+
     <style name="AppTheme" parent="Theme.AppCompat.DayNight.NoActionBar">
         <item name="statusBarBackground">@android:color/transparent</item>
         <item name="colorPrimary">@color/colorPrimary</item>
@@ -31,4 +32,13 @@
         <item name="android:textAppearanceLarge">@font/din</item>
         <item name="android:fontFamily">@font/din</item>
     </style>
+
+    <style name="MenuTheme" parent="Theme.AppCompat.DayNight.NoActionBar">
+        <!-- so empty -->
+    </style>
+
+    <style name="Highlight" parent="@style/Theme.AppCompat.Light.NoActionBar">
+        <item name="colorControlHighlight">#40161a23</item>
+    </style>
+
 </resources>

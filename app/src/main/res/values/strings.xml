@@ -8,13 +8,13 @@
     <string name="about">About</string>
     <string name="home">Home</string>
     <string name="changelog">Changelog</string>
-    <string name="version">Version 3.0</string>
+    <string name="version">Version 3.1</string>
     <string name="welcomeTitle">Hi there!</string>
     <string name="easterEggTitle">You found the secret!</string>
-    <string name="easterEggMessage">You must be related to Sherlock Holmes. We thank you for staying invested in our first app.\n\nDo you like the dark mode and animations?\nWe hope you enjoy this app and share your feedback.</string>
+    <string name="easterEggMessage">You must be related to Sherlock Holmes. We thank you for staying invested in our first app.\n\nDo you like the dark mode and animations? We hope you enjoy this app and share your feedback.</string>
     <string name="welcomeMessage">It\'s lscambo13. I Thank you for installing our first app.\n\nThe app features full dark mode and nice animations. You should also take a look at the source code and the latest changes in version 3.0 from the three-dot menu at top-right corner.\n\nWe hope you enjoy this app and share your feedback at our Telegram support group.</string>
-    <string name="updateTitle">What\'s New in v3.0</string>
-    <string name="updateMessage">1. Better theme in three-dot menu on the top-right corner\n2. Fixed crashes on certain in the About screen\n3. All new welcome and changelog dialogs\n4. Numerous under-the-hood improvements and the source code is now much easy to follow\n5. An easter egg. Can you find it?-\n\nCheck GitHub for more comprehensive list</string>
+    <string name="updateTitle">What\'s New in v3.1</string>
+    <string name="updateMessage">1. Better theme in three-dot menu on the top-right corner\n2. Fixed crashes in the About screen\n3. All new welcome and changelog dialogs\n4. An easter egg. Can you find it?\n5. Numerous under-the-hood improvements and bug fixes\n6. The source code is now much easy to follow\n\nCheck GitHub for more comprehensive list</string>
     <string name="about_text">\n\nVersion 3.0\nFree software under GNU GPL v3.0\n\nAn app to let you chat with others on WhatsApp without ever needing to actually save their phone number in contacts.\n\nCreated by:\nLSCAMBO13 and MSC24X\n\n</string>
     <string name="update">Check for updates</string>
     <string name="main_ads">ca-app-pub-2978500497338722/8267326157</string>

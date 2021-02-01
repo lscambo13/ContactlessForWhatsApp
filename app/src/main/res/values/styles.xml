@@ -1,4 +1,5 @@
 <resources xmlns:tools="http://schemas.android.com/tools">
+
     <style name="AppTheme" parent="Theme.AppCompat.DayNight.NoActionBar">
         <item name="statusBarBackground">@android:color/transparent</item>
         <item name="colorPrimary">@color/colorPrimary</item>
@@ -8,7 +9,7 @@
         <item name="android:windowLightNavigationBar" tools:ignore="NewApi">true</item>
         <item name="android:navigationBarColor">@color/colorPrimary</item>
         <item name="android:windowBackground">@color/colorPrimary</item>
-        <item name="fontFamily"> @font/din</item>
+        <item name="fontFamily">@font/din</item>
         <!-- This will override the Alert Dialog theme -->
         <item name="alertDialogTheme">@style/MyAlertDialogTheme</item>
     </style>
@@ -33,7 +34,11 @@
     </style>
 
     <style name="MenuTheme" parent="Theme.AppCompat.DayNight.NoActionBar">
+        <!-- so empty -->
+    </style>
 
+    <style name="Highlight" parent="@style/Theme.AppCompat.Light.NoActionBar">
+        <!-- item name="colorControlHighlight">#4007b77c</item -->
     </style>
 
 </resources>
