@@ -9,15 +9,15 @@ import android.telephony.TelephonyManager
 import android.view.animation.Animation
 import android.view.animation.AnimationUtils
 import android.view.inputmethod.EditorInfo
-import android.widget.EditText
-import android.widget.ImageView
-import android.widget.PopupMenu
-import android.widget.Toast
+import android.widget.*
 import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.app.AppCompatDelegate
+import androidx.core.view.ViewCompat
 import com.google.android.gms.ads.AdRequest
 import com.google.android.gms.ads.AdView
+import com.lscambo13.contactlessForWhatsApp.Menu.MenuClicks.makeStatusBarTransparent
+import com.lscambo13.contactlessForWhatsApp.Menu.MenuClicks.setMarginTop
 import kotlinx.android.synthetic.main.activity_main.*
 import java.util.*
 import kotlin.system.exitProcess
@@ -27,6 +27,13 @@ open class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
+
+        // Experiment for transparent statusbar
+        makeStatusBarTransparent()
+        ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.scrollView2)) { _, insets ->
+            findViewById<TextView>(R.id.topGuide).setMarginTop(insets.systemWindowInsetTop)
+            insets.consumeSystemWindowInsets()
+        }
 
         // This section detects if the app is running for the first time.
         // Int 0 = new user

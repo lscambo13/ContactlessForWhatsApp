@@ -14,8 +14,11 @@ import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.app.AppCompatDelegate
 import androidx.core.content.ContextCompat
+import androidx.core.view.ViewCompat
 import com.google.android.gms.ads.AdRequest
 import com.google.android.gms.ads.AdView
+import com.lscambo13.contactlessForWhatsApp.Menu.MenuClicks.makeStatusBarTransparent
+import com.lscambo13.contactlessForWhatsApp.Menu.MenuClicks.setMarginTop
 import kotlinx.android.synthetic.main.activity_about.*
 import kotlin.system.exitProcess
 
@@ -24,6 +27,13 @@ class About : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_about)
+
+        // Experiment for transparent statusbar
+        makeStatusBarTransparent()
+        ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.scrollView3)) { _, insets ->
+            findViewById<TextView>(R.id.topGuide).setMarginTop(insets.systemWindowInsetTop)
+            insets.consumeSystemWindowInsets()
+        }
 
         // Load ads.
         val adView = findViewById<AdView>(R.id.adView)
