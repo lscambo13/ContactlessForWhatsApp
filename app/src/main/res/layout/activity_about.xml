@@ -23,15 +23,22 @@
             app:layout_constraintHorizontal_bias="0.5"
             app:layout_constraintTop_toTopOf="parent">
 
+            <androidx.constraintlayout.widget.Guideline
+                android:id="@+id/topGuide"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                ads:layout_constraintGuide_begin="32dp" />
+
             <ImageView
                 android:id="@+id/imageView"
                 android:layout_width="229dp"
                 android:layout_height="177dp"
-                android:layout_marginTop="108dp"
+                android:layout_marginTop="104dp"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.5"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintTop_toTopOf="@id/topGuide"
                 app:srcCompat="@drawable/bg_auto"
                 tools:ignore="ContentDescription" />
 
@@ -43,7 +50,6 @@
                 android:background="@drawable/button_about"
                 android:clickable="true"
                 android:focusable="true"
-                android:fontFamily="@font/license"
                 android:gravity="center"
                 android:text="@string/back"
                 android:textColor="@color/colorText"
@@ -61,7 +67,6 @@
                 android:background="@drawable/button"
                 android:clickable="true"
                 android:focusable="true"
-                android:fontFamily="@font/license"
                 android:gravity="center"
                 android:paddingStart="12dp"
                 android:paddingEnd="12dp"
@@ -114,6 +119,7 @@
                 android:orientation="horizontal"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
+                ads:layout_constraintVertical_bias="0.025"
                 app:layout_constraintHorizontal_bias="0.5"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/closeAbt">
@@ -172,11 +178,10 @@
         android:layout_width="match_parent"
         android:layout_height="52dp"
         android:layout_marginStart="16dp"
-        android:layout_marginTop="32dp"
+        android:layout_marginTop="48dp"
         android:layout_marginEnd="16dp"
         android:background="@drawable/heading"
         android:elevation="8dp"
-        android:fontFamily="@font/license"
         android:gravity="center"
         android:text="@string/app_name"
         android:textColor="@color/colorText"
@@ -190,7 +195,7 @@
         android:id="@+id/menu_btn"
         android:layout_width="32dp"
         android:layout_height="32dp"
-        android:layout_marginTop="42dp"
+        android:layout_marginTop="60dp"
         android:layout_marginEnd="8dp"
         android:background="?android:attr/selectableItemBackground"
         android:clickable="true"
