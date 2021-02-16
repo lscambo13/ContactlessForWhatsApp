@@ -20,7 +20,6 @@ import com.google.android.gms.ads.AdView
 import com.lscambo13.contactlessForWhatsApp.Menu.MenuClicks.makeStatusBarTransparent
 import com.lscambo13.contactlessForWhatsApp.Menu.MenuClicks.setMarginTop
 import kotlinx.android.synthetic.main.activity_about.*
-import kotlin.system.exitProcess
 
 class About : AppCompatActivity() {
 
@@ -165,11 +164,12 @@ class About : AppCompatActivity() {
                     true
                 }
                 R.id.exit -> {
-                    this.finish()
-                    exitProcess(0)
+                    finishAffinity()
+                    true
                 }
                 R.id.home -> {
-                    Menu.MenuClicks.home(this)
+                    onBackPressed()
+                    this.finish()
                     true
                 }
                 R.id.changelog -> {

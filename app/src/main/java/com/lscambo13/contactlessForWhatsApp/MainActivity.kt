@@ -20,7 +20,6 @@ import com.lscambo13.contactlessForWhatsApp.Menu.MenuClicks.makeStatusBarTranspa
 import com.lscambo13.contactlessForWhatsApp.Menu.MenuClicks.setMarginTop
 import kotlinx.android.synthetic.main.activity_main.*
 import java.util.*
-import kotlin.system.exitProcess
 
 open class MainActivity : AppCompatActivity() {
 
@@ -228,8 +227,8 @@ open class MainActivity : AppCompatActivity() {
                     true
                 }
                 R.id.exit -> {
-                    this.finish()
-                    exitProcess(0)
+                    finishAffinity()
+                    true
                 }
                 R.id.about -> {
                     Menu.MenuClicks.about(this)
